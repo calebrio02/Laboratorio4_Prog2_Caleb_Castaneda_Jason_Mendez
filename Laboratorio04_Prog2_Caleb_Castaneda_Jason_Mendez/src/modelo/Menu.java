@@ -446,21 +446,42 @@ import java.awt.Component;
 			contentPane.add(menuInserta, "t1");
 			menuInserta.setLayout(null);
 			
+			JTextArea tNis = new JTextArea();
+			tNis.setForeground(new Color(47, 79, 79));
+			tNis.setOpaque(false);
+			tNis.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
+			tNis.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
+			tNis.setBounds(101, 100, 161, 21);
+			menuInserta.add(tNis);
+			
+			JTextArea tCed = new JTextArea();
+			tCed.setForeground(new Color(47, 79, 79));
+			tCed.setOpaque(false);
+			tCed.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
+			tCed.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
+			tCed.setBounds(101, 62, 161, 21);
+			menuInserta.add(tCed);
+			
 			
 			
 			
 			JLabel lblCedula = new JLabel("Cedula:");
-			lblCedula.setFont(new Font("Sylfaen", Font.BOLD | Font.ITALIC, 15));
-			lblCedula.setBounds(10, 38, 61, 16);
+			lblCedula.setForeground(new Color(47, 79, 79));
+			lblCedula.setFont(new Font("Sitka Text", Font.BOLD, 15));
+			lblCedula.setBounds(10, 68, 61, 16);
 			menuInserta.add(lblCedula);
 			
 			JLabel lblResidencia = new JLabel("Residencia:");
-			lblResidencia.setFont(new Font("Sylfaen", Font.BOLD | Font.ITALIC, 15));
-			lblResidencia.setBounds(10, 102, 122, 29);
+			lblResidencia.setForeground(new Color(47, 79, 79));
+			lblResidencia.setFont(new Font("Sitka Text", Font.BOLD, 15));
+			lblResidencia.setBounds(10, 145, 122, 29);
 			menuInserta.add(lblResidencia);
 			
 			JTextArea tNombre = new JTextArea();
-			tNombre.setFont(new Font("Monospaced", Font.BOLD | Font.ITALIC, 13));
+			tNombre.setForeground(new Color(47, 79, 79));
+			tNombre.setOpaque(false);
+			tNombre.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
+			tNombre.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
 			
 			tNombre.addKeyListener(new KeyAdapter() { //PARA UTILIZAR TAP AL MOMENTO DE NAVEGAR POR LOS TEXT'SAREAS
 				@Override
@@ -477,55 +498,13 @@ import java.awt.Component;
 		                }
 		            }
 		        });
-		
-			tNombre.setLineWrap(true);
-			tNombre.setBounds(93, 6, 114, 21);
+			tNombre.setBounds(101, 26, 161, 21);
 			menuInserta.add(tNombre);
 			
-			JTextArea tCed = new JTextArea();
-			tCed.setFont(new Font("Monospaced", Font.BOLD | Font.ITALIC, 13));
-			tCed.addKeyListener(new KeyAdapter() { //PARA UTILIZAR TAP AL MOMENTO DE NAVEGAR POR LOS TEXT'SAREAS
-				@Override
-				public void keyPressed(KeyEvent e) {
-					 if (e.getKeyCode() == KeyEvent.VK_TAB) {
-		                    if (e.getModifiersEx() > 0) {
-		                        tCed.transferFocusBackward();
-		                    } else {
-		                    	tCed.transferFocus();
-		                    }
-		                    e.consume();
-		                }
-		            }
-		        });
-			
-			tCed.setLineWrap(true);
-			tCed.setBounds(93, 38, 114, 23);
-			menuInserta.add(tCed);
-			
-			JTextArea tNis = new JTextArea();
-			tNis.setFont(new Font("Monospaced", Font.BOLD | Font.ITALIC, 13));
-			
-			tNis.addKeyListener(new KeyAdapter() { //PARA UTILIZAR TAP AL MOMENTO DE NAVEGAR POR LOS TEXT'SAREAS
-				@Override
-				public void keyPressed(KeyEvent e) {
-					 if (e.getKeyCode() == KeyEvent.VK_TAB) {
-		                    if (e.getModifiersEx() > 0) {
-		                        tNis.transferFocusBackward();
-		                    } else {
-		                    	tNis.transferFocus();
-		                    }
-		                    e.consume();
-		                }
-		            }
-		        });
-			
-			tNis.setLineWrap(true);
-			tNis.setBounds(93, 72, 114, 23);
-			menuInserta.add(tNis);
-			
 			JLabel lblNis = new JLabel("NIS:");
-			lblNis.setFont(new Font("Sylfaen", Font.BOLD | Font.ITALIC, 15));
-			lblNis.setBounds(10, 70, 82, 16);
+			lblNis.setForeground(new Color(47, 79, 79));
+			lblNis.setFont(new Font("Sitka Text", Font.BOLD, 15));
+			lblNis.setBounds(10, 100, 82, 16);
 			menuInserta.add(lblNis);
 			
 			JButton listo = new JButton("Listo!");
@@ -612,13 +591,14 @@ import java.awt.Component;
 					
 				}
 			});
-			btnBorraD.setBounds(452, 324, 192, 29);
+			btnBorraD.setBounds(450, 324, 192, 29);
 			
 			menuInserta.add(btnBorraD);
 			
 			JLabel lblNombre = new JLabel("Nombre:");
-			lblNombre.setFont(new Font("Sylfaen", Font.BOLD | Font.ITALIC, 15));
-			lblNombre.setBounds(10, 6, 61, 16);
+			lblNombre.setForeground(new Color(47, 79, 79));
+			lblNombre.setFont(new Font("Sitka Text", Font.BOLD, 15));
+			lblNombre.setBounds(10, 36, 81, 16);
 			menuInserta.add(lblNombre);
 			
 		//	pPrueba.setContentAreaFilled(false);
@@ -631,8 +611,9 @@ import java.awt.Component;
 			pPrueba.setLayout(null);
 			
 			JLabel lDireccion = new JLabel("Direccion exacta:");
-			lDireccion.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 13));
-			lDireccion.setBounds(115, 135, 106, 16);
+			lDireccion.setForeground(new Color(47, 79, 79));
+			lDireccion.setFont(new Font("Sitka Text", Font.BOLD, 13));
+			lDireccion.setBounds(115, 135, 124, 16);
 			pPrueba.add(lDireccion);
 			
 			
@@ -654,13 +635,15 @@ import java.awt.Component;
 			scrollPane_2.setViewportView(tDireccionExacta);
 			
 			JLabel lTipoAv = new JLabel("Tipo de averia");
-			lTipoAv.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 13));
-			lTipoAv.setBounds(115, 10, 89, 16);
+			lTipoAv.setForeground(new Color(47, 79, 79));
+			lTipoAv.setFont(new Font("Sitka Text", Font.BOLD, 13));
+			lTipoAv.setBounds(115, 10, 124, 16);
 			pPrueba.add(lTipoAv);
 			
 			JLabel lLugar = new JLabel("Lugar");
-			lLugar.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 13));
-			lLugar.setBounds(135, 76, 89, 16);
+			lLugar.setForeground(new Color(47, 79, 79));
+			lLugar.setFont(new Font("Sitka Text", Font.BOLD, 13));
+			lLugar.setBounds(135, 76, 104, 16);
 			pPrueba.add(lLugar);
 			pPrueba.setVisible(false);
 			
@@ -681,15 +664,19 @@ import java.awt.Component;
 			boxTipoAveria.setBounds(336, 17, 275, 26);
 			menuInserta.add(boxTipoAveria);
 			
-			JScrollPane scrollPane_3 = new JScrollPane();
-			scrollPane_3.setBounds(93, 105, 114, 26);
-			menuInserta.add(scrollPane_3);
-			
-			
-			//JTextArea tResi = new JTextArea();
+			JScrollPane scrollPaneTResi = new JScrollPane();
+			scrollPaneTResi.setOpaque(false);
+			scrollPaneTResi.setViewportBorder(null);
+			scrollPaneTResi.setBounds(101, 146, 191, 88);
+			menuInserta.add(scrollPaneTResi);
+			tResi.setForeground(new Color(47, 79, 79));
 			tResi.setWrapStyleWord(true);
-			tResi.setFont(new Font("Monospaced", Font.BOLD | Font.ITALIC, 13));
-			scrollPane_3.setViewportView(tResi);
+			
+			tResi.setLineWrap(true);
+			tResi.setOpaque(false);
+			tResi.setBorder(null);
+			tResi.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
+			scrollPaneTResi.setViewportView(tResi);
 			
 			tResi.addKeyListener(new KeyAdapter() {  //PARA UTILIZAR TAP AL MOMENTO DE NAVEGAR POR LOS TEXT'SAREAS
 				@Override
@@ -705,7 +692,6 @@ import java.awt.Component;
 		            }
 		        });
 			
-			tResi.setLineWrap(true);
 			
 			
 			 btnHomeShorCut = new JButton("");
@@ -730,6 +716,13 @@ import java.awt.Component;
 			lblImageInserta.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/gradientInsertar.jpeg")));
 			lblImageInserta.setBounds(0, 0, 721, 450);
 			menuInserta.add(lblImageInserta);
+			
+			JTextArea tNombre_1 = new JTextArea();
+			tNombre_1.setOpaque(false);
+			tNombre_1.setFont(new Font("Monospaced", Font.BOLD | Font.ITALIC, 13));
+			tNombre_1.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
+			tNombre_1.setBounds(101, 196, 161, 21);
+			menuInserta.add(tNombre_1);
 			
 			
 			
