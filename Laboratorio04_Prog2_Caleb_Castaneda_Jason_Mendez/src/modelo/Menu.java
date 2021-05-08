@@ -48,6 +48,13 @@
 	import javax.swing.border.LineBorder;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerListModel;
+import javax.swing.border.CompoundBorder;
+import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.Frame;
+import java.awt.Point;
 	
 	public class Menu extends JFrame {
 	
@@ -102,6 +109,8 @@ import javax.swing.SpinnerListModel;
 		 * Create the frame.
 		 */
 		public Menu() {
+			setLocationByPlatform(true);
+			setVisible(true);
 			setFont(new Font("Palatino Linotype", Font.BOLD, 15));
 			setTitle("Reporto mi aver\u00EDa.");
 			setResizable(false);
@@ -109,27 +118,105 @@ import javax.swing.SpinnerListModel;
 			setBackground(Color.DARK_GRAY);
 			setIconImage(Toolkit.getDefaultToolkit().getImage("\\\\Mac\\Home\\Downloads\\Basic_set\\Basic_set_Png\\Basic_set_Png\\home_48.png"));
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			setBounds(100, 100, 737, 489);
+			setBounds(100, 100, 737, 489);;;
+			contentPane = new JPanel();
+			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+			setContentPane(contentPane);
+			contentPane.setLayout(new CardLayout(0, 0));
 			
-			JMenuBar menuBar = new JMenuBar();
-			menuBar.setMargin(new Insets(0, 0, 7, 0));
-			menuBar.setBackground(new Color(102, 153, 204));
-			setJMenuBar(menuBar);
 			
-			JButton btnInsertar = new JButton("Inserta");//QUE TAL SI SE ESTABLECE QUE SI EL ARBOL ESTA VACIO, ENTONCES EL INDICE DEL RECIBO ES CERO
-														//PARA QUE SE CREE UN NUEVO REPORTE EN ORDEN?
-			btnInsertar.addActionListener(new ActionListener() {
+			JPanel inicioApp = new JPanel();
+			contentPane.add(inicioApp, "Ingreso");
+			inicioApp.setLayout(null);
+			
+			JPanel panel = new JPanel();
+			panel.setBounds(180, 55, 322, 342);
+			inicioApp.add(panel);
+			
+			JLabel lblWelcomeImage = new JLabel("");
+			lblWelcomeImage.setHorizontalAlignment(SwingConstants.TRAILING);
+			lblWelcomeImage.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/bgInicio.jpeg")));
+			lblWelcomeImage.setBounds(0, 0, 721, 450);
+			inicioApp.add(lblWelcomeImage);
+			
+			bienvenida = new JPanel();
+			
+			bienvenida.setBackground(new Color(204, 153, 153));
+			
+			contentPane.add(bienvenida, "name_35267632081647");
+			
+			
+			
+			
+			bienvenida.setLayout(null);
+			//	btnInsertar.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/plus_16.png")));
+				
+				JLabel lblNewLabel_1 = new JLabel("");
+				lblNewLabel_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+				//lblNewLabel_1.setIcon(new ImageIcon("\\\\Mac\\Home\\Downloads\\Laboratorio03_Prog2_Caleb_Castaneda_Jason_Mendez\\src\\vista\\iconsImages\\Mountain.png"));
+				lblNewLabel_1.setBounds(-677, 0, 1506, 474);
+				bienvenida.add(lblNewLabel_1);
+			
+			JLabel lblNewLabel_2 = new JLabel("Bienvenido.");
+			lblNewLabel_2.setForeground(Color.WHITE);
+			lblNewLabel_2.setFont(new Font("Times New Roman", Font.ITALIC, 25));
+			lblNewLabel_2.setBounds(270, 160, 364, 151);
+			bienvenida.add(lblNewLabel_2);
+			//btnActualiza.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/save_16.png")));
+			
+			JButton btnbusca = new JButton("Buscar");
+			btnbusca.setBounds(0, 185, 81, 27);
+			bienvenida.add(btnbusca);
+			btnbusca.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					CardLayout c = (CardLayout)(contentPane.getLayout());
-					c.show(contentPane, "t1");
+					c.show(contentPane, "t3");
+					//tDatosBuscar.setText(arbol.acumulaDatos());
 					
 				}
 			});
-			btnInsertar.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
-			btnInsertar.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/plus_16.png")));
-			menuBar.add(btnInsertar);
+			
+			
+			btnbusca.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
+			
+			JButton btnSalir = new JButton("Salir");
+			btnSalir.setBounds(0, 305, 81, 27);
+			bienvenida.add(btnSalir);
+			
+			btnSalir.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {//FINALIZACION DEL PROGRAMA CONTROLADA
+					
+					if (JOptionPane.showConfirmDialog(null, "Esta seguro que desea salir?", "Alerta",//SE PREGUNRTA SI DESEA SALIR REALMENTE POR SI SE APRETO EL BOTON POR ERROR
+					        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {	
+						System.exit(0);//SI NO HAY DATOS DEL TODO EL PROGRAMA SOLO SE CIERRA SIN PREGUNTAR SI DESEA GUARDAR DATOS
+					} else {
+					}
+				}
+			});
+			
+			btnSalir.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
+			//btnSalir.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/right_16.png")));
+			
+			JButton btnElimina = new JButton("Eliminar");
+			btnElimina.setBounds(0, 267, 81, 27);
+			bienvenida.add(btnElimina);
+			btnElimina.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					CardLayout c = (CardLayout)(contentPane.getLayout());
+					c.show(contentPane, "t4");
+					//tInfoEliminar.setText(arbol.acumulaDatos());
+					
+				}
+			});
+			
+			btnElimina.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
+			//btnbusca.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/search_16.png")));
 			
 			JButton btnMostrar = new JButton("Mostrar");
+			btnMostrar.setBounds(0, 147, 81, 27);
+			bienvenida.add(btnMostrar);
 			btnMostrar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					CardLayout c = (CardLayout)(contentPane.getLayout());
@@ -142,25 +229,35 @@ import javax.swing.SpinnerListModel;
 			});
 			
 			btnMostrar.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
-			btnMostrar.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/monitor_16.png")));
-			menuBar.add(btnMostrar);
+			//btnMostrar.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/monitor_16.png")));
 			
-			JButton btnbusca = new JButton("Buscar");
-			btnbusca.addActionListener(new ActionListener() {
+			JButton btnInsertar = new JButton("Inserta");
+			btnInsertar.addMouseMotionListener(new MouseMotionAdapter() {
+				@Override
+				public void mouseMoved(MouseEvent e) {
+				}
+			});
+			btnInsertar.setSize(new Dimension(5, 6));
+			btnInsertar.setSelected(true);
+			btnInsertar.setPreferredSize(new Dimension(68, 23));
+			btnInsertar.setCursor(Cursor.getPredefinedCursor(Cursor.NW_RESIZE_CURSOR));
+			btnInsertar.setBounds(0, 107, 81, 27);
+			bienvenida.add(btnInsertar);
+			
+			//PARA QUE SE CREE UN NUEVO REPORTE EN ORDEN?
+			btnInsertar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					CardLayout c = (CardLayout)(contentPane.getLayout());
-					c.show(contentPane, "t3");
-					//tDatosBuscar.setText(arbol.acumulaDatos());
+					c.show(contentPane, "t1");
 					
 				}
 			});
-			
-			
-			btnbusca.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
-			btnbusca.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/search_16.png")));
-			menuBar.add(btnbusca);
+			btnInsertar.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
+			//btnElimina.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/delete_16.png")));
 			
 			JButton btnActualiza = new JButton("Actualizar");
+			btnActualiza.setBounds(0, 223, 81, 27);
+			bienvenida.add(btnActualiza);
 			btnActualiza.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					CardLayout c = (CardLayout)(contentPane.getLayout());
@@ -184,65 +281,6 @@ import javax.swing.SpinnerListModel;
 					
 				}
 			});
-			btnActualiza.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/save_16.png")));
-			menuBar.add(btnActualiza);
-			
-			JButton btnElimina = new JButton("Eliminar");
-			btnElimina.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					CardLayout c = (CardLayout)(contentPane.getLayout());
-					c.show(contentPane, "t4");
-					//tInfoEliminar.setText(arbol.acumulaDatos());
-					
-				}
-			});
-			
-			btnElimina.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
-			btnElimina.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/delete_16.png")));
-			menuBar.add(btnElimina);
-			
-			JButton btnSalir = new JButton("Salir");
-			
-			btnSalir.addActionListener(new ActionListener() {
-				
-				@Override
-				public void actionPerformed(ActionEvent e) {//FINALIZACION DEL PROGRAMA CONTROLADA
-					
-					if (JOptionPane.showConfirmDialog(null, "Esta seguro que desea salir?", "Alerta",//SE PREGUNRTA SI DESEA SALIR REALMENTE POR SI SE APRETO EL BOTON POR ERROR
-					        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {	
-						System.exit(0);//SI NO HAY DATOS DEL TODO EL PROGRAMA SOLO SE CIERRA SIN PREGUNTAR SI DESEA GUARDAR DATOS
-					} else {
-					}
-				}
-			});;
-			
-			btnSalir.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
-			btnSalir.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/right_16.png")));
-			menuBar.add(btnSalir);;
-			contentPane = new JPanel();
-			contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-			setContentPane(contentPane);
-			contentPane.setLayout(new CardLayout(0, 0));
-			
-			bienvenida = new JPanel();
-			
-			bienvenida.setBackground(new Color(204, 153, 153));
-			
-			contentPane.add(bienvenida, "name_35267632081647");
-			
-			
-			bienvenida.setLayout(null);
-			
-			JLabel lblNewLabel_2 = new JLabel("Bienvenido.");
-			lblNewLabel_2.setForeground(Color.WHITE);
-			lblNewLabel_2.setFont(new Font("Times New Roman", Font.ITALIC, 25));
-			lblNewLabel_2.setBounds(270, 55, 382, 256);
-			bienvenida.add(lblNewLabel_2);
-			
-			JLabel lblNewLabel_1 = new JLabel("");
-			lblNewLabel_1.setIcon(new ImageIcon("\\\\Mac\\Home\\Downloads\\Laboratorio03_Prog2_Caleb_Castaneda_Jason_Mendez\\src\\vista\\iconsImages\\Mountain.png"));
-			lblNewLabel_1.setBounds(-677, 0, 1506, 474);
-			bienvenida.add(lblNewLabel_1);
 			
 			menuMuestra = new JPanel();
 			menuMuestra.setBackground(SystemColor.activeCaption);
@@ -360,7 +398,7 @@ import javax.swing.SpinnerListModel;
 			menuInserta.add(lblNis);
 			
 			JButton listo = new JButton("Listo!");
-			listo.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/tick_16.png")));
+			//listo.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/tick_16.png")));
 			listo.setSelectedIcon(new ImageIcon("\\\\Mac\\Home\\Downloads\\Basic_set\\Basic_set_Png\\Basic_set_Png\\tick_16.png"));
 			listo.setToolTipText("Ingresa los datos correspondiente");
 			listo.setFont(new Font("Dialog", Font.BOLD, 13));
@@ -620,7 +658,7 @@ import javax.swing.SpinnerListModel;
 			scrollPane_1.setViewportView(tInfoEliminar);
 			
 			JButton btnEliminar = new JButton("Eliminar");
-			btnEliminar.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/trash_32.png")));
+			//btnEliminar.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/trash_32.png")));
 			btnEliminar.setFont(new Font("Nirmala UI Semilight", Font.BOLD, 14));
 			btnEliminar.addActionListener(new ActionListener() {
 				
@@ -865,6 +903,7 @@ import javax.swing.SpinnerListModel;
 			
 			tArchivadas.setEditable(false);
 			scrollPane_6.setViewportView(tArchivadas);
+			
 			
 			
 			
