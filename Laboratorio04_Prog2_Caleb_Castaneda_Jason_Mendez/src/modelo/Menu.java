@@ -56,6 +56,7 @@ import java.awt.event.MouseEvent;
 import java.awt.Frame;
 import java.awt.Point;
 import javax.swing.border.MatteBorder;
+import java.awt.Component;
 	
 	public class Menu extends JFrame {
 	
@@ -139,17 +140,26 @@ import javax.swing.border.MatteBorder;
 			panel.setLayout(null);
 			
 			txtIngreseContrasena = new JTextField();
-			txtIngreseContrasena.setText("Contrasena");
+			txtIngreseContrasena.setForeground(new Color(47, 79, 79));
+			txtIngreseContrasena.setBackground(Color.WHITE);
+			txtIngreseContrasena.setHorizontalAlignment(SwingConstants.LEFT);
+			txtIngreseContrasena.setFont(new Font("Palatino Linotype", Font.PLAIN, 13));
+			txtIngreseContrasena.setEditable(false);
+			txtIngreseContrasena.setText("********");
 			txtIngreseContrasena.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(95, 158, 160)));
-			txtIngreseContrasena.setBounds(10, 190, 216, 26);
+			txtIngreseContrasena.setBounds(10, 214, 216, 26);
 			panel.add(txtIngreseContrasena);
 			txtIngreseContrasena.setColumns(10);
 			
 			txtAdmin = new JTextField();
-			txtAdmin.setText("Admin@UCR.com");
+			txtAdmin.setForeground(new Color(47, 79, 79));
+			txtAdmin.setFont(new Font("Palatino Linotype", Font.PLAIN, 13));
+			txtAdmin.setBackground(Color.WHITE);
+			txtAdmin.setEditable(false);
+			txtAdmin.setText("admin@UCR.com");
 			txtAdmin.setColumns(10);
 			txtAdmin.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(95, 158, 160)));
-			txtAdmin.setBounds(10, 122, 216, 26);
+			txtAdmin.setBounds(10, 146, 216, 26);
 			panel.add(txtAdmin);
 			
 			JLabel lblNewLabel_3 = new JLabel("Login");
@@ -162,6 +172,15 @@ import javax.swing.border.MatteBorder;
 			lblNewLabel_4.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/login.png")));
 			lblNewLabel_4.setBounds(84, 11, 64, 64);
 			panel.add(lblNewLabel_4);
+			
+			JButton btnNewButton_1 = new JButton("Ingresar");
+			btnNewButton_1.setBackground(new Color(95, 158, 160));
+			btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+			btnNewButton_1.setForeground(Color.WHITE);
+			btnNewButton_1.setBorder(null);
+			btnNewButton_1.setAlignmentX(Component.CENTER_ALIGNMENT);
+			btnNewButton_1.setBounds(73, 305, 96, 26);
+			panel.add(btnNewButton_1);
 			
 			JLabel lblWelcomeImage = new JLabel("");
 			lblWelcomeImage.setHorizontalAlignment(SwingConstants.TRAILING);
