@@ -55,6 +55,7 @@ import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Frame;
 import java.awt.Point;
+import javax.swing.border.MatteBorder;
 	
 	public class Menu extends JFrame {
 	
@@ -99,6 +100,8 @@ import java.awt.Point;
 		private JPanel menuBusca;
 		private JPanel panelActulizaDatosGenerales;
 		private JTextField tBuscaReporte;
+		private JTextField txtIngreseContrasena;
+		private JTextField txtAdmin;
 		
 		/**
 		 * Launch the application.
@@ -130,8 +133,35 @@ import java.awt.Point;
 			inicioApp.setLayout(null);
 			
 			JPanel panel = new JPanel();
-			panel.setBounds(180, 55, 322, 342);
+			panel.setBackground(Color.WHITE);
+			panel.setBounds(364, 40, 243, 365);
 			inicioApp.add(panel);
+			panel.setLayout(null);
+			
+			txtIngreseContrasena = new JTextField();
+			txtIngreseContrasena.setText("Contrasena");
+			txtIngreseContrasena.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(95, 158, 160)));
+			txtIngreseContrasena.setBounds(10, 190, 216, 26);
+			panel.add(txtIngreseContrasena);
+			txtIngreseContrasena.setColumns(10);
+			
+			txtAdmin = new JTextField();
+			txtAdmin.setText("Admin@UCR.com");
+			txtAdmin.setColumns(10);
+			txtAdmin.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(95, 158, 160)));
+			txtAdmin.setBounds(10, 122, 216, 26);
+			panel.add(txtAdmin);
+			
+			JLabel lblNewLabel_3 = new JLabel("Login");
+			lblNewLabel_3.setForeground(new Color(47, 79, 79));
+			lblNewLabel_3.setFont(new Font("Palatino Linotype", Font.BOLD, 17));
+			lblNewLabel_3.setBounds(94, 83, 86, 45);
+			panel.add(lblNewLabel_3);
+			
+			JLabel lblNewLabel_4 = new JLabel("");
+			lblNewLabel_4.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/login.png")));
+			lblNewLabel_4.setBounds(84, 11, 64, 64);
+			panel.add(lblNewLabel_4);
 			
 			JLabel lblWelcomeImage = new JLabel("");
 			lblWelcomeImage.setHorizontalAlignment(SwingConstants.TRAILING);
