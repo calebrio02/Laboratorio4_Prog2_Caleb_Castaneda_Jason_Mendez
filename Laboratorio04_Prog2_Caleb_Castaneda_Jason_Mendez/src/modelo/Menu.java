@@ -203,7 +203,7 @@ import java.awt.Component;
 			
 			bienvenida = new JPanel();
 			
-			bienvenida.setBackground(new Color(204, 153, 153));
+			bienvenida.setBackground(Color.WHITE);
 			
 			contentPane.add(bienvenida, "MenuPrincipal");
 			
@@ -211,23 +211,18 @@ import java.awt.Component;
 			
 			
 			bienvenida.setLayout(null);
-			//	btnInsertar.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/plus_16.png")));
-				
-				JLabel lblNewLabel_1 = new JLabel("");
-				lblNewLabel_1.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-				//lblNewLabel_1.setIcon(new ImageIcon("\\\\Mac\\Home\\Downloads\\Laboratorio03_Prog2_Caleb_Castaneda_Jason_Mendez\\src\\vista\\iconsImages\\Mountain.png"));
-				lblNewLabel_1.setBounds(-677, 0, 1506, 474);
-				bienvenida.add(lblNewLabel_1);
-			
-			JLabel lblNewLabel_2 = new JLabel("Bienvenido.");
-			lblNewLabel_2.setForeground(Color.WHITE);
-			lblNewLabel_2.setFont(new Font("Times New Roman", Font.ITALIC, 25));
-			lblNewLabel_2.setBounds(270, 160, 364, 151);
-			bienvenida.add(lblNewLabel_2);
 			//btnActualiza.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/save_16.png")));
 			
 			JButton btnbusca = new JButton("Buscar");
-			btnbusca.setBounds(0, 185, 81, 27);
+			btnbusca.setHorizontalAlignment(SwingConstants.LEFT);
+			btnbusca.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/buscar.png")));
+			btnbusca.setForeground(Color.WHITE);
+			
+			btnbusca.setContentAreaFilled(false);
+			btnbusca.setOpaque(false);
+			btnbusca.setBackground(new Color (0, 0, 0, 50));
+			
+			btnbusca.setBounds(0, 162, 185, 51);
 			bienvenida.add(btnbusca);
 			btnbusca.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -239,10 +234,20 @@ import java.awt.Component;
 			});
 			
 			
-			btnbusca.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
+			btnbusca.setFont(new Font("SimSun", Font.BOLD, 15));
+			
+			
 			
 			JButton btnSalir = new JButton("Salir");
-			btnSalir.setBounds(0, 305, 81, 27);
+			btnSalir.setHorizontalAlignment(SwingConstants.LEFT);
+			btnSalir.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/salir.png")));
+			btnSalir.setForeground(Color.WHITE);
+			
+			btnSalir.setContentAreaFilled(false);
+			btnSalir.setOpaque(false);
+			btnSalir.setBackground(new Color (0, 0, 0, 50));
+			
+			btnSalir.setBounds(0, 348, 185, 51);
 			bienvenida.add(btnSalir);
 			
 			btnSalir.addActionListener(new ActionListener() {
@@ -258,11 +263,20 @@ import java.awt.Component;
 				}
 			});
 			
-			btnSalir.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
+			btnSalir.setFont(new Font("SimSun", Font.BOLD, 15));
 			//btnSalir.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/right_16.png")));
 			
 			JButton btnElimina = new JButton("Eliminar");
-			btnElimina.setBounds(0, 267, 81, 27);
+			btnElimina.setHorizontalAlignment(SwingConstants.LEFT);
+			btnElimina.setForeground(Color.WHITE);
+			
+			btnElimina.setContentAreaFilled(false);
+			btnElimina.setOpaque(false);
+			btnElimina.setBackground(new Color (0, 0, 0, 50));
+			
+			
+			btnElimina.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/eliminar.png")));
+			btnElimina.setBounds(0, 286, 185, 51);
 			bienvenida.add(btnElimina);
 			btnElimina.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -273,11 +287,16 @@ import java.awt.Component;
 				}
 			});
 			
-			btnElimina.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
-			//btnbusca.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/search_16.png")));
-			
+			btnElimina.setFont(new Font("SimSun", Font.BOLD, 15));
+	
 			JButton btnMostrar = new JButton("Mostrar");
-			btnMostrar.setBounds(0, 147, 81, 27);
+			btnMostrar.setHorizontalAlignment(SwingConstants.LEFT);
+			btnMostrar.setForeground(Color.WHITE);
+			btnMostrar.setContentAreaFilled(false);
+			btnMostrar.setOpaque(false);
+			btnMostrar.setBackground(new Color (0, 0, 0, 50));
+			btnMostrar.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/mostrar.png")));
+			btnMostrar.setBounds(0, 100, 185, 51);
 			bienvenida.add(btnMostrar);
 			btnMostrar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -290,20 +309,28 @@ import java.awt.Component;
 				}
 			});
 			
-			btnMostrar.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
+			btnMostrar.setFont(new Font("SimSun", Font.BOLD, 15));
 			//btnMostrar.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/monitor_16.png")));
 			
 			JButton btnInsertar = new JButton("Inserta");
+			btnInsertar.setHorizontalAlignment(SwingConstants.LEFT);
+			btnInsertar.setForeground(Color.WHITE);
+			btnInsertar.setContentAreaFilled(false);
+			btnInsertar.setOpaque(false);
+			btnInsertar.setBackground(new Color (0, 0, 0, 50));
+			btnInsertar.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/add.png")));
 			btnInsertar.addMouseMotionListener(new MouseMotionAdapter() {
 				@Override
 				public void mouseMoved(MouseEvent e) {
+					
 				}
 			});
 			btnInsertar.setSize(new Dimension(5, 6));
+			
 			btnInsertar.setSelected(true);
 			btnInsertar.setPreferredSize(new Dimension(68, 23));
 			btnInsertar.setCursor(Cursor.getPredefinedCursor(Cursor.NW_RESIZE_CURSOR));
-			btnInsertar.setBounds(0, 107, 81, 27);
+			btnInsertar.setBounds(0, 38, 185, 51);
 			bienvenida.add(btnInsertar);
 			
 			//PARA QUE SE CREE UN NUEVO REPORTE EN ORDEN?
@@ -314,11 +341,19 @@ import java.awt.Component;
 					
 				}
 			});
-			btnInsertar.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
+			btnInsertar.setFont(new Font("SimSun", Font.BOLD, 15));
 			//btnElimina.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/delete_16.png")));
 			
 			JButton btnActualiza = new JButton("Actualizar");
-			btnActualiza.setBounds(0, 223, 81, 27);
+			btnActualiza.setHorizontalAlignment(SwingConstants.LEFT);
+			btnActualiza.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/actualizar.png")));
+			
+			btnActualiza.setContentAreaFilled(false);
+			btnActualiza.setOpaque(false);
+			btnActualiza.setBackground(new Color (0, 0, 0, 50));
+			
+			btnActualiza.setForeground(Color.WHITE);
+			btnActualiza.setBounds(0, 224, 185, 51);
 			bienvenida.add(btnActualiza);
 			btnActualiza.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
@@ -332,7 +367,12 @@ import java.awt.Component;
 				}
 			});
 			
-			btnActualiza.setFont(new Font("Segoe UI Semibold", Font.BOLD, 13));
+			btnActualiza.setFont(new Font("SimSun", Font.BOLD, 15));
+			
+			JLabel lblNewLabel_1 = new JLabel("");
+			lblNewLabel_1.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/340461.jpg")));
+			lblNewLabel_1.setBounds(0, 0, 741, 450);
+			bienvenida.add(lblNewLabel_1);
 			
 			
 			btnActualiza.addActionListener(new ActionListener() {
