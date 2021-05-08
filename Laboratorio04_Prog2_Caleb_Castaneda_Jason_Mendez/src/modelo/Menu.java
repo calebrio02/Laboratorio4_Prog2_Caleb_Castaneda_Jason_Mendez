@@ -96,6 +96,10 @@ import java.awt.Component;
 		JComboBox boxLugarAc = new JComboBox();
 		JTextArea tDireccionExactaAc = new JTextArea();
 		
+		/////BOTON HOME/////
+		
+		JButton btnHomeShorCut = new JButton("");
+		
 		
 		private JPanel menuElimina;
 		private JPanel menuBusca;
@@ -133,11 +137,11 @@ import java.awt.Component;
 			contentPane.add(inicioApp, "Ingreso");
 			inicioApp.setLayout(null);
 			
-			JPanel panel = new JPanel();
-			panel.setBackground(Color.WHITE);
-			panel.setBounds(364, 40, 243, 365);
-			inicioApp.add(panel);
-			panel.setLayout(null);
+			JPanel panelLoginMade = new JPanel();
+			panelLoginMade.setBackground(Color.WHITE);
+			panelLoginMade.setBounds(364, 29, 243, 376);
+			inicioApp.add(panelLoginMade);
+			panelLoginMade.setLayout(null);
 			
 			txtIngreseContrasena = new JTextField();
 			txtIngreseContrasena.setForeground(new Color(47, 79, 79));
@@ -147,8 +151,8 @@ import java.awt.Component;
 			txtIngreseContrasena.setEditable(false);
 			txtIngreseContrasena.setText("********");
 			txtIngreseContrasena.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(95, 158, 160)));
-			txtIngreseContrasena.setBounds(10, 214, 216, 26);
-			panel.add(txtIngreseContrasena);
+			txtIngreseContrasena.setBounds(10, 231, 216, 26);
+			panelLoginMade.add(txtIngreseContrasena);
 			txtIngreseContrasena.setColumns(10);
 			
 			txtAdmin = new JTextField();
@@ -159,28 +163,37 @@ import java.awt.Component;
 			txtAdmin.setText("admin@UCR.com");
 			txtAdmin.setColumns(10);
 			txtAdmin.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(95, 158, 160)));
-			txtAdmin.setBounds(10, 146, 216, 26);
-			panel.add(txtAdmin);
+			txtAdmin.setBounds(10, 163, 216, 26);
+			panelLoginMade.add(txtAdmin);
 			
 			JLabel lblNewLabel_3 = new JLabel("Login");
 			lblNewLabel_3.setForeground(new Color(47, 79, 79));
 			lblNewLabel_3.setFont(new Font("Palatino Linotype", Font.BOLD, 17));
-			lblNewLabel_3.setBounds(94, 83, 86, 45);
-			panel.add(lblNewLabel_3);
+			lblNewLabel_3.setBounds(94, 100, 86, 45);
+			panelLoginMade.add(lblNewLabel_3);
 			
 			JLabel lblNewLabel_4 = new JLabel("");
 			lblNewLabel_4.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/login.png")));
-			lblNewLabel_4.setBounds(84, 11, 64, 64);
-			panel.add(lblNewLabel_4);
+			lblNewLabel_4.setBounds(84, 28, 64, 64);
+			panelLoginMade.add(lblNewLabel_4);
 			
 			JButton btnNewButton_1 = new JButton("Ingresar");
+			btnNewButton_1.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					CardLayout c = (CardLayout)(contentPane.getLayout());
+					//inicioApp.setVisible(false);
+					c.show(contentPane, "MenuPrincipal");
+					
+
+				}
+			});
 			btnNewButton_1.setBackground(new Color(95, 158, 160));
 			btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 			btnNewButton_1.setForeground(Color.WHITE);
 			btnNewButton_1.setBorder(null);
 			btnNewButton_1.setAlignmentX(Component.CENTER_ALIGNMENT);
-			btnNewButton_1.setBounds(73, 305, 96, 26);
-			panel.add(btnNewButton_1);
+			btnNewButton_1.setBounds(73, 306, 96, 26);
+			panelLoginMade.add(btnNewButton_1);
 			
 			JLabel lblWelcomeImage = new JLabel("");
 			lblWelcomeImage.setHorizontalAlignment(SwingConstants.TRAILING);
@@ -192,7 +205,7 @@ import java.awt.Component;
 			
 			bienvenida.setBackground(new Color(204, 153, 153));
 			
-			contentPane.add(bienvenida, "name_35267632081647");
+			contentPane.add(bienvenida, "MenuPrincipal");
 			
 			
 			
@@ -356,6 +369,24 @@ import java.awt.Component;
 			scroll= new JScrollPane(datos);
 			scroll.setBounds(93, 67, 498, 262);
 			menuMuestra.add(scroll);
+			
+			//JButton btnHomeShorCut = new JButton("");
+			btnHomeShorCut.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					menuMuestra.setVisible(false);
+					bienvenida.setVisible(true);
+				
+					
+					
+				}
+			});
+			btnHomeShorCut.setContentAreaFilled(false);
+			btnHomeShorCut.setBorder(null);
+			btnHomeShorCut.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/home.png")));
+			btnHomeShorCut.setBounds(302, 399, 101, 40);
+			menuMuestra.add(btnHomeShorCut);
+			
+			
 			
 			menuInserta = new JPanel();
 			menuInserta.setBackground(new Color(102, 102, 153));
@@ -625,6 +656,23 @@ import java.awt.Component;
 			tResi.setLineWrap(true);
 			
 			
+			 btnHomeShorCut = new JButton("");
+			btnHomeShorCut.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					menuInserta.setVisible(false);
+					bienvenida.setVisible(true);
+				
+					
+					
+				}
+			});
+			btnHomeShorCut.setContentAreaFilled(false);
+			btnHomeShorCut.setBorder(null);
+			btnHomeShorCut.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/home.png")));
+			btnHomeShorCut.setBounds(302, 399, 101, 40);
+			menuInserta.add(btnHomeShorCut);
+			
+			
 			
 			menuBusca = new JPanel();
 			menuBusca.setBackground(new Color(188, 143, 143));
@@ -673,6 +721,22 @@ import java.awt.Component;
 			btnBuscar.setToolTipText("Presiona para mostrar informacion.");
 			btnBuscar.setBounds(370, 48, 90, 28);
 			menuBusca.add(btnBuscar);
+			
+			btnHomeShorCut = new JButton("");
+			btnHomeShorCut.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					menuBusca.setVisible(false);
+					bienvenida.setVisible(true);
+				
+					
+					
+				}
+			});
+			btnHomeShorCut.setContentAreaFilled(false);
+			btnHomeShorCut.setBorder(null);
+			btnHomeShorCut.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/home.png")));
+			btnHomeShorCut.setBounds(302, 399, 101, 40);
+			menuBusca.add(btnHomeShorCut);
 			
 			menuElimina = new JPanel();
 			menuElimina.setBackground(new Color(119, 136, 153));
@@ -725,6 +789,24 @@ import java.awt.Component;
 			btnEliminar.setToolTipText("Presiona para mostrar informacion.");
 			btnEliminar.setBounds(389, 65, 122, 64);
 			menuElimina.add(btnEliminar);
+			
+			
+			 btnHomeShorCut = new JButton("");
+			btnHomeShorCut.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					menuElimina.setVisible(false);
+					bienvenida.setVisible(true);
+				
+					
+					
+				}
+			});
+			btnHomeShorCut.setContentAreaFilled(false);
+			btnHomeShorCut.setBorder(null);
+			btnHomeShorCut.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/home.png")));
+			btnHomeShorCut.setBounds(302, 399, 101, 40);
+			menuElimina.add(btnHomeShorCut);
+			
 			
 			JPanel menuActualiza = new JPanel();
 			menuActualiza.setBackground(new Color(95, 158, 160));
