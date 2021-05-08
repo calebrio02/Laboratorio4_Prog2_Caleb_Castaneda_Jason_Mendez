@@ -73,6 +73,9 @@ import java.awt.Component;
 		
 		private JPanel bienvenida;
 		JPanel pPrueba = new JPanel();
+		
+		
+		
 		JTextArea tDatosBuscar = new JTextArea();
 		JTextArea tResi = new JTextArea();
 		JTextArea datos = new JTextArea();
@@ -99,6 +102,8 @@ import java.awt.Component;
 		/////BOTON HOME/////
 		
 		JButton btnHomeShorCut = new JButton("");
+		private JButton btnHomeShorCut_2;
+		private JButton btnHomeShorCut_1;
 		
 		
 		private JPanel menuElimina;
@@ -178,6 +183,7 @@ import java.awt.Component;
 			panelLoginMade.add(lblNewLabel_4);
 			
 			JButton btnNewButton_1 = new JButton("Ingresar");
+			btnNewButton_1.setToolTipText("Ingresa a la aplicacion");
 			btnNewButton_1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					CardLayout c = (CardLayout)(contentPane.getLayout());
@@ -190,7 +196,6 @@ import java.awt.Component;
 			btnNewButton_1.setBackground(new Color(95, 158, 160));
 			btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 			btnNewButton_1.setForeground(Color.WHITE);
-			btnNewButton_1.setBorder(null);
 			btnNewButton_1.setAlignmentX(Component.CENTER_ALIGNMENT);
 			btnNewButton_1.setBounds(73, 306, 96, 26);
 			panelLoginMade.add(btnNewButton_1);
@@ -389,13 +394,30 @@ import java.awt.Component;
 			contentPane.add(menuMuestra, "t2");
 			menuMuestra.setLayout(null);
 			
-			JLabel label = new JLabel("New label");
-			label.setBounds(301, 29, 35, -4);
-			menuMuestra.add(label);
+			
+			btnHomeShorCut = new JButton("");
+			btnHomeShorCut.setToolTipText("Regresar a menu prinicipal");
+			btnHomeShorCut.setOpaque(false);
+			btnHomeShorCut.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					menuMuestra.setVisible(false);
+					bienvenida.setVisible(true);
+				
+					
+					
+				}
+			});
+			
+			btnHomeShorCut.setContentAreaFilled(false);
+			btnHomeShorCut.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/home.png")));
+			btnHomeShorCut.setBounds(311, 378, 65, 41);
+			menuMuestra.add(btnHomeShorCut);
 			
 			JLabel lDatos = new JLabel("Datos");
-			lDatos.setFont(new Font("Milkshake", Font.ITALIC, 18));
-			lDatos.setBounds(311, 6, 129, 35);
+			lDatos.setForeground(new Color(47, 79, 79));
+			lDatos.setHorizontalAlignment(SwingConstants.CENTER);
+			lDatos.setFont(new Font("SimSun", Font.BOLD, 20));
+			lDatos.setBounds(274, 21, 129, 35);
 			menuMuestra.add(lDatos);
 			
 			datos.setFont(new Font("Segoe UI Semibold", Font.BOLD | Font.ITALIC, 13));
@@ -410,21 +432,10 @@ import java.awt.Component;
 			scroll.setBounds(93, 67, 498, 262);
 			menuMuestra.add(scroll);
 			
-			//JButton btnHomeShorCut = new JButton("");
-			btnHomeShorCut.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					menuMuestra.setVisible(false);
-					bienvenida.setVisible(true);
-				
-					
-					
-				}
-			});
-			btnHomeShorCut.setContentAreaFilled(false);
-			btnHomeShorCut.setBorder(null);
-			btnHomeShorCut.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/home.png")));
-			btnHomeShorCut.setBounds(302, 399, 101, 40);
-			menuMuestra.add(btnHomeShorCut);
+			JLabel lblNewLabel_5 = new JLabel("");
+			lblNewLabel_5.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/gradientMostrar.jpeg")));
+			lblNewLabel_5.setBounds(0, 0, 721, 450);
+			menuMuestra.add(lblNewLabel_5);
 			
 			
 			
@@ -522,7 +533,7 @@ import java.awt.Component;
 			listo.setSelectedIcon(new ImageIcon("\\\\Mac\\Home\\Downloads\\Basic_set\\Basic_set_Png\\Basic_set_Png\\tick_16.png"));
 			listo.setToolTipText("Ingresa los datos correspondiente");
 			listo.setFont(new Font("Dialog", Font.BOLD, 13));
-			listo.setBounds(168, 340, 122, 29);
+			listo.setBounds(93, 324, 122, 29);
 			
 			listo.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
@@ -601,7 +612,7 @@ import java.awt.Component;
 					
 				}
 			});
-			btnBorraD.setBounds(336, 340, 192, 29);
+			btnBorraD.setBounds(452, 324, 192, 29);
 			
 			menuInserta.add(btnBorraD);
 			
@@ -610,8 +621,9 @@ import java.awt.Component;
 			lblNombre.setBounds(10, 6, 61, 16);
 			menuInserta.add(lblNombre);
 			
-			
-			pPrueba.setBorder(new LineBorder(Color.DARK_GRAY, 4, true));
+		//	pPrueba.setContentAreaFilled(false);
+			pPrueba.setOpaque(false);
+			pPrueba.setBackground(new Color (0, 0, 0, 50));
 			pPrueba.setBackground(new Color(128, 128, 128));
 															//pPrueba.setBackground(new Color(0,0,0,x));//BAJAR LA OPACIDAD DEL PANEL CON LA CORDENADA "X"-> última coordenada
 			pPrueba.setBounds(302, 55, 342, 258);
@@ -697,6 +709,8 @@ import java.awt.Component;
 			
 			
 			 btnHomeShorCut = new JButton("");
+			 btnHomeShorCut.setToolTipText("Regresar a menu prinicipal");
+			 btnHomeShorCut.setOpaque(false);
 			btnHomeShorCut.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					menuInserta.setVisible(false);
@@ -707,10 +721,15 @@ import java.awt.Component;
 				}
 			});
 			btnHomeShorCut.setContentAreaFilled(false);
-			btnHomeShorCut.setBorder(null);
 			btnHomeShorCut.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/home.png")));
-			btnHomeShorCut.setBounds(302, 399, 101, 40);
+			btnHomeShorCut.setBounds(323, 353, 61, 53);
 			menuInserta.add(btnHomeShorCut);
+			
+			JLabel lblImageInserta = new JLabel("");
+			lblImageInserta.setHorizontalAlignment(SwingConstants.RIGHT);
+			lblImageInserta.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/gradientInsertar.jpeg")));
+			lblImageInserta.setBounds(0, 0, 721, 450);
+			menuInserta.add(lblImageInserta);
 			
 			
 			
@@ -762,8 +781,9 @@ import java.awt.Component;
 			btnBuscar.setBounds(370, 48, 90, 28);
 			menuBusca.add(btnBuscar);
 			
-			btnHomeShorCut = new JButton("");
-			btnHomeShorCut.addActionListener(new ActionListener() {
+			btnHomeShorCut_2 = new JButton("");
+			btnHomeShorCut_2.setToolTipText("Menu principal");
+			btnHomeShorCut_2.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					menuBusca.setVisible(false);
 					bienvenida.setVisible(true);
@@ -772,11 +792,16 @@ import java.awt.Component;
 					
 				}
 			});
-			btnHomeShorCut.setContentAreaFilled(false);
-			btnHomeShorCut.setBorder(null);
-			btnHomeShorCut.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/home.png")));
-			btnHomeShorCut.setBounds(302, 399, 101, 40);
-			menuBusca.add(btnHomeShorCut);
+			btnHomeShorCut_2.setContentAreaFilled(false);
+			btnHomeShorCut_2.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/home.png")));
+			btnHomeShorCut_2.setBounds(301, 365, 82, 52);
+			menuBusca.add(btnHomeShorCut_2);
+			
+			JLabel lblNewLabel_2 = new JLabel("");
+			lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+			lblNewLabel_2.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/gradientBuscar.jpg")));
+			lblNewLabel_2.setBounds(-58, -43, 841, 538);
+			menuBusca.add(lblNewLabel_2);
 			
 			menuElimina = new JPanel();
 			menuElimina.setBackground(new Color(119, 136, 153));
@@ -831,8 +856,9 @@ import java.awt.Component;
 			menuElimina.add(btnEliminar);
 			
 			
-			 btnHomeShorCut = new JButton("");
-			btnHomeShorCut.addActionListener(new ActionListener() {
+			 btnHomeShorCut_1 = new JButton("");
+			 btnHomeShorCut_1.setToolTipText("Regresa a menu principal");
+			btnHomeShorCut_1.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					menuElimina.setVisible(false);
 					bienvenida.setVisible(true);
@@ -841,11 +867,10 @@ import java.awt.Component;
 					
 				}
 			});
-			btnHomeShorCut.setContentAreaFilled(false);
-			btnHomeShorCut.setBorder(null);
-			btnHomeShorCut.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/home.png")));
-			btnHomeShorCut.setBounds(302, 399, 101, 40);
-			menuElimina.add(btnHomeShorCut);
+			btnHomeShorCut_1.setContentAreaFilled(false);
+			btnHomeShorCut_1.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/home.png")));
+			btnHomeShorCut_1.setBounds(301, 381, 65, 49);
+			menuElimina.add(btnHomeShorCut_1);
 			
 			
 			JPanel menuActualiza = new JPanel();
