@@ -39,6 +39,36 @@ public class GComida  extends Vivienda{
 	}
 	
 	
+	public int calculoGasto() {
+		
+		int total=0;
+		
+		total=(getSupermercado()+getCarniceria()+getVerduleria());
+		return total;
+	}
+	@Override
+	public String mostrar() {
+		
+		String mensaje ="";
+		
+		 mensaje+="Gastos en comida /n/n"
+		 		+ "Supermercado: ¢"+ getSupermercado()+"/n"
+		 		+ "Carniceria: ¢"+getCarniceria()+"/n"
+		 		+ "Verduleria: ¢"+getVerduleria()+"/n"
+		 		+ "Total: ¢ "+calculoGasto()+"/n/n";
+		
+		return mensaje;
+	}
+
+
+	public void ingresar(int supermercado, int carne, int verdu) {
+
+		setSupermercado(supermercado);
+		setCarniceria(carne);
+		setVerduleria(verdu);
+	}
+	
+	
 	
 
 }

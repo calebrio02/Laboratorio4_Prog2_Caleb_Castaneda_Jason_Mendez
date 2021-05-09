@@ -22,5 +22,33 @@ public class GOcio extends Vivienda{
 		this.salidas = salidas;
 	}
 	
+	public int calculoGasto(){
+		
+		int total=0;
+		
+		total=(getSalidas()+getSalidas());
+		return total;
+	}
+	@Override
+	public String mostrar() {
+		// TODO Auto-generated method stub
+		
+		String mensaje="";
+		
+		mensaje+="Gastos en Ocio /n/n"
+				+"Online (Netflix, juegos, etc): ¢"+getStreaming()+"/n"
+				+"Salidas: ¢" +getSalidas()+"/n"
+				+"Total: ¢" +calculoGasto()+"/n/n";
+		
+		return mensaje;
+	}
+
+
+	public void ingresar(int streaming, int salidas) {
+
+			setStreaming(streaming);
+			setSalidas(salidas);
+	}
+	
 
 }

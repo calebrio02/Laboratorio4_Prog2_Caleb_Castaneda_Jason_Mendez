@@ -19,6 +19,8 @@ public abstract class Vivienda {
 		this.g = g;
 	}
 	
+	public abstract String mostrar();
+	
 	
 
 }
