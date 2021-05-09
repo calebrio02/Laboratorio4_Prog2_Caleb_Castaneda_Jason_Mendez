@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="modelo.Persona" project="Laboratorio04_Prog2_Caleb_Castaneda_Jason_Mendez" 
-    file="/Laboratorio04_Prog2_Caleb_Castaneda_Jason_Mendez/src/modelo/Persona.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="243" width="137" x="406" y="-237"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="2" language="java" name="modelo.Menu" project="Laboratorio04_Prog2_Caleb_Castaneda_Jason_Mendez" 
-    file="/Laboratorio04_Prog2_Caleb_Castaneda_Jason_Mendez/src/modelo/Menu.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="747" width="206" x="583" y="-237"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    
