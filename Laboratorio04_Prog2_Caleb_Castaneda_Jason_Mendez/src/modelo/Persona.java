@@ -8,10 +8,11 @@ public class Persona {
 	
 	private String numTel;
 
+	
 	public String getNombre() {
 		return nombre;
 	}
-
+	
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
@@ -30,6 +31,19 @@ public class Persona {
 
 	public void setNumTel(String numTel) {
 		this.numTel = numTel;
+	}
+	
+	
+	public String muestraPersona() {
+		String mensaje;
+		mensaje = "Nombre: " + getNombre() + "\n"
+				+  "Cedula: " + getId() + "\n"
+				+ 	"Contacto: " + getNumTel() + "\n";
+				
+		
+		
+		
+		return mensaje;
 	}
 	
 	

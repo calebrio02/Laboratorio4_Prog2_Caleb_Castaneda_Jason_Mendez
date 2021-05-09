@@ -80,7 +80,6 @@ import javax.swing.border.SoftBevelBorder;
 		
 		
 		JTextArea tDatosBuscar = new JTextArea();
-		JTextArea tResi = new JTextArea();
 		JTextArea datos = new JTextArea();
 		JTextArea tInfoEliminar = new JTextArea();
 		JTextArea tDireccionExacta = new JTextArea();
@@ -459,13 +458,21 @@ import javax.swing.border.SoftBevelBorder;
 			contentPane.add(menuInserta, "t1");
 			menuInserta.setLayout(null);
 			
-			JTextArea tNis = new JTextArea();
-			tNis.setForeground(new Color(47, 79, 79));
-			tNis.setOpaque(false);
-			tNis.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
-			tNis.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
-			tNis.setBounds(101, 100, 161, 21);
-			menuInserta.add(tNis);
+			JTextArea tIngreso = new JTextArea();
+			tIngreso.setOpaque(false);
+			tIngreso.setForeground(new Color(47, 79, 79));
+			tIngreso.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
+			tIngreso.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
+			tIngreso.setBounds(101, 145, 161, 21);
+			menuInserta.add(tIngreso);
+			
+			JTextArea tContacto = new JTextArea();
+			tContacto.setForeground(new Color(47, 79, 79));
+			tContacto.setOpaque(false);
+			tContacto.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
+			tContacto.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
+			tContacto.setBounds(101, 100, 161, 21);
+			menuInserta.add(tContacto);
 			
 			JTextArea tCed = new JTextArea();
 			tCed.setForeground(new Color(47, 79, 79));
@@ -484,7 +491,7 @@ import javax.swing.border.SoftBevelBorder;
 			lblCedula.setBounds(10, 68, 61, 16);
 			menuInserta.add(lblCedula);
 			
-			JLabel lblResidencia = new JLabel("Residencia:");
+			JLabel lblResidencia = new JLabel("Ingreso:");
 			lblResidencia.setForeground(new Color(47, 79, 79));
 			lblResidencia.setFont(new Font("Sitka Text", Font.BOLD, 15));
 			lblResidencia.setBounds(10, 145, 122, 29);
@@ -514,11 +521,11 @@ import javax.swing.border.SoftBevelBorder;
 			tNombre.setBounds(101, 26, 161, 21);
 			menuInserta.add(tNombre);
 			
-			JLabel lblNis = new JLabel("NIS:");
-			lblNis.setForeground(new Color(47, 79, 79));
-			lblNis.setFont(new Font("Sitka Text", Font.BOLD, 15));
-			lblNis.setBounds(10, 100, 82, 16);
-			menuInserta.add(lblNis);
+			JLabel lblContacto = new JLabel("Contacto:");
+			lblContacto.setForeground(new Color(47, 79, 79));
+			lblContacto.setFont(new Font("Sitka Text", Font.BOLD, 15));
+			lblContacto.setBounds(10, 105, 97, 16);
+			menuInserta.add(lblContacto);
 			
 			JButton listo = new JButton("Listo!");
 			//listo.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/tick_16.png")));
@@ -533,7 +540,7 @@ import javax.swing.border.SoftBevelBorder;
 					//	lista.mensajeTemporizado("Agregue su nombre", 1000);
 						
 					
-					}else if(tNis.getText().isEmpty()) {
+					}else if(tContacto.getText().isEmpty()) {
 					//lista.mensajeTemporizado("Ingrese su numero NIS!", 1000);
 						
 					}
@@ -570,8 +577,9 @@ import javax.swing.border.SoftBevelBorder;
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 								tNombre.setText("");
 								tCed.setText("");
-								tNis.setText("");
-								tResi.setText("");
+								tContacto.setText("");
+								tIngreso.setText("");
+								
 								tDireccionExacta.setText("");
 								boxTipoAveria.setSelectedIndex(0);
 								boxLugar.setSelectedIndex(0);
@@ -595,8 +603,8 @@ import javax.swing.border.SoftBevelBorder;
 					
 					tNombre.setText("");
 					tCed.setText("");
-					tNis.setText("");
-					tResi.setText("");
+					tContacto.setText("");
+					tIngreso.setText("");
 				
 					tDireccionExacta.setText("");
 					boxTipoAveria.setSelectedIndex(0);
@@ -613,8 +621,6 @@ import javax.swing.border.SoftBevelBorder;
 			lblNombre.setFont(new Font("Sitka Text", Font.BOLD, 15));
 			lblNombre.setBounds(10, 36, 81, 16);
 			menuInserta.add(lblNombre);
-			
-		//	pPrueba.setContentAreaFilled(false);
 			pPrueba.setOpaque(false);
 			pPrueba.setBackground(new Color (0, 0, 0, 50));
 			pPrueba.setBackground(new Color(128, 128, 128));
@@ -677,34 +683,6 @@ import javax.swing.border.SoftBevelBorder;
 			boxTipoAveria.setBounds(336, 17, 275, 26);
 			menuInserta.add(boxTipoAveria);
 			
-			JScrollPane scrollPaneTResi = new JScrollPane();
-			scrollPaneTResi.setOpaque(false);
-			scrollPaneTResi.setViewportBorder(null);
-			scrollPaneTResi.setBounds(101, 146, 191, 88);
-			menuInserta.add(scrollPaneTResi);
-			tResi.setForeground(new Color(47, 79, 79));
-			tResi.setWrapStyleWord(true);
-			
-			tResi.setLineWrap(true);
-			tResi.setOpaque(false);
-			tResi.setBorder(null);
-			tResi.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
-			scrollPaneTResi.setViewportView(tResi);
-			
-			tResi.addKeyListener(new KeyAdapter() {  //PARA UTILIZAR TAP AL MOMENTO DE NAVEGAR POR LOS TEXT'SAREAS
-				@Override
-				public void keyPressed(KeyEvent e) {
-					 if (e.getKeyCode() == KeyEvent.VK_TAB) {
-		                    if (e.getModifiersEx() > 0) {
-		                        tResi.transferFocusBackward();
-		                    } else {
-		                    	tResi.transferFocus();
-		                    }
-		                    e.consume();
-		                }
-		            }
-		        });
-			
 			
 			
 			 btnHomeShorCut = new JButton("");
@@ -729,13 +707,6 @@ import javax.swing.border.SoftBevelBorder;
 			lblImageInserta.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/gradientInsertar.jpeg")));
 			lblImageInserta.setBounds(0, 0, 721, 450);
 			menuInserta.add(lblImageInserta);
-			
-			JTextArea tNombre_1 = new JTextArea();
-			tNombre_1.setOpaque(false);
-			tNombre_1.setFont(new Font("Monospaced", Font.BOLD | Font.ITALIC, 13));
-			tNombre_1.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
-			tNombre_1.setBounds(101, 196, 161, 21);
-			menuInserta.add(tNombre_1);
 			
 			
 			
