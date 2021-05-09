@@ -9,6 +9,16 @@ public class Aparato {
 	private String modelo;
 	
 	private String problema;
+	
+	private String color;
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
 
 	public String getProblema() {
 		return problema;
