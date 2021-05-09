@@ -1,12 +1,18 @@
 package modelo;
 
-public class GComida {
+public class GComida  extends Vivienda{
 	
 	private int supermercado;
 	
 	private int carniceria;
 	
 	private int verduleria;
+	
+	
+
+	public GComida() {
+	
+	}
 
 	public int getSupermercado() {
 		return supermercado;

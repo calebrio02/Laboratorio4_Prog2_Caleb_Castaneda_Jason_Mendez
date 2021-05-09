@@ -1,14 +1,14 @@
 package modelo;
 
-public class GServiciosBasicos {
+public class GServiciosBasicos extends Vivienda{
 
 	private int agua;
 	
 	private int luz;
 	
-	private int cable;
+	private int cableInternet;
 	
-	private int internet;
+	private int transporte;
 
 	public int getAgua() {
 		return agua;
@@ -26,20 +26,22 @@ public class GServiciosBasicos {
 		this.luz = luz;
 	}
 
-	public int getCable() {
-		return cable;
+	public int getCableInternet() {
+		return cableInternet;
 	}
 
-	public void setCable(int cable) {
-		this.cable = cable;
+	public void setCableInternet(int cableInternet) {
+		this.cableInternet = cableInternet;
 	}
 
-	public int getInternet() {
-		return internet;
+	public int getTransporte() {
+		return transporte;
 	}
 
-	public void setInternet(int internet) {
-		this.internet = internet;
+	public void setTransporte(int transporte) {
+		this.transporte = transporte;
 	}
+
+
 	
 }
