@@ -36,7 +36,8 @@
 	import javax.swing.UIManager;
 	import java.awt.event.KeyAdapter;
 	import java.awt.event.KeyEvent;
-	import java.util.Iterator;
+import java.awt.event.KeyListener;
+import java.util.Iterator;
 	
 	import javax.swing.JTextField;
 	import javax.swing.JList;
@@ -60,6 +61,7 @@ import java.awt.Component;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.SoftBevelBorder;
+import java.awt.event.MouseAdapter;
 	
 	public class Menu extends JFrame {
 	
@@ -114,6 +116,13 @@ import javax.swing.border.SoftBevelBorder;
 		private JTextField tBuscaReporte;
 		private JTextField txtIngreseContrasena;
 		private JTextField txtAdmin;
+		
+		
+		//////PANEL COMIDA/////
+		JTextArea txtrIngreseGastoCarniceria = new JTextArea();
+		JTextArea txtrSupermercado = new JTextArea();
+		JTextArea tGastoVerduleria = new JTextArea();
+		
 		
 		/**
 		 * Launch the application.
@@ -458,6 +467,243 @@ import javax.swing.border.SoftBevelBorder;
 			contentPane.add(menuInserta, "t1");
 			menuInserta.setLayout(null);
 			
+			JPanel pComida = new JPanel();
+			pComida.setBackground(SystemColor.info);
+			pComida.setBounds(302, 55, 340, 154);
+			menuInserta.add(pComida);
+			pComida.setLayout(null);
+			
+			
+			
+			txtrSupermercado.setOpaque(false);
+			txtrSupermercado.setText("Ingrese gasto Supermercado");
+			txtrSupermercado.setForeground(Color.LIGHT_GRAY);
+			txtrSupermercado.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
+			txtrSupermercado.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
+			txtrSupermercado.setBounds(75, 11, 221, 21);
+			
+			txtrSupermercado.addKeyListener(new KeyAdapter() { //PARA UTILIZAR TAP AL MOMENTO DE NAVEGAR POR LOS TEXT'SAREAS
+				@Override
+				public void keyPressed(KeyEvent e) {
+					 if (e.getKeyCode() == KeyEvent.VK_TAB) {
+		                    if (e.getModifiersEx() > 0) {
+		                    	txtrSupermercado.transferFocusBackward();
+		                    } else {
+		                    	//tNombre.setFocusable(tNombre.getDragEnabled());
+		                    	txtrIngreseGastoCarniceria.setText("");
+		                    	txtrSupermercado.transferFocus();
+		                    	
+		                    	
+		                    }
+		                    e.consume();
+		                }
+		            }
+		        });
+			
+			
+			txtrSupermercado.addMouseListener(new MouseAdapter() {// SE BORRA EL MENSAJE GUIA DEL TXT AREA PARA INGRESAR EL VALOR PERTINENTE POR HACER CLICK
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					
+					
+					if(txtrSupermercado.getText().equalsIgnoreCase("ingrese gasto supermercado")) {
+			    		txtrSupermercado.setText("");
+			    	}
+					
+				}
+			});
+			
+			txtrSupermercado.addKeyListener(new KeyAdapter() // SE BORRA EL MENSAJE GUIA DEL TXT AREA PARA INGRESAR EL VALOR PERTINENTE POR CUALQUIER ENTRADA DEL TECLADO
+			{
+				public void keyTyped(KeyEvent e)
+				{
+					
+					if(txtrSupermercado.getText().equalsIgnoreCase("ingrese gasto supermercado")) {
+						txtrSupermercado.setText("");
+					}else if(e.getKeyCode()== KeyEvent.VK_TAB) {
+							txtrSupermercado.setText("");
+					}
+				}
+			});
+			
+			
+			
+			txtrSupermercado.addKeyListener(new KeyAdapter()// Verificar si la tecla pulsada no es un digito/NUMERO
+			    {
+			    	public void keyTyped(KeyEvent e)
+			    	{
+			    		char caracter = e.getKeyChar();
+			    		
+			    		
+			    		if(((caracter < '0') ||
+			    				(caracter > '9')) &&
+			    				(caracter != '\b' /*corresponde a BACK_SPACE*/))
+			    		{
+			    			e.consume();  // ignorar el evento de teclado
+			    			//lista.mensajeTemporizado("Ingrese solo numeros", 1000); 	//HALAR ESTE MENSAJE DESDE LISTA PARA PODER USARLO
+			    		}
+			    	}
+			    });
+			
+			
+			
+			
+			txtrSupermercado.addKeyListener(new KeyListener(){ //PARA LIMITAR QUE USUARIO NO INGRESE UN GASTO MAYOR A 6 CIFRAS O DIGITOS
+		    	 
+		    	public void keyTyped(KeyEvent e)
+		    	 
+		    	{if (txtrSupermercado.getText().length()== 6)
+		    	 
+		    	     e.consume();
+		    	}
+		    	 
+		    	public void keyPressed(KeyEvent arg0) {
+		    	}
+		    	 
+		    	public void keyReleased(KeyEvent arg0) {
+		    	}
+		    	});
+			
+			
+			pComida.add(txtrSupermercado);
+			
+			
+			txtrIngreseGastoCarniceria.setText("Ingrese gasto Carniceria");
+			txtrIngreseGastoCarniceria.setOpaque(false);
+			txtrIngreseGastoCarniceria.setForeground(Color.LIGHT_GRAY);
+			txtrIngreseGastoCarniceria.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
+			txtrIngreseGastoCarniceria.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
+			txtrIngreseGastoCarniceria.setBounds(75, 50, 221, 21);
+			
+			
+			txtrIngreseGastoCarniceria.addKeyListener(new KeyAdapter() { //PARA UTILIZAR TAP AL MOMENTO DE NAVEGAR POR LOS TEXT'SAREAS
+				@Override
+				public void keyPressed(KeyEvent e) {
+					 if (e.getKeyCode() == KeyEvent.VK_TAB) {
+		                    if (e.getModifiersEx() > 0) {
+		                    	txtrIngreseGastoCarniceria.transferFocusBackward();
+		                    } else {
+		                    	//tNombre.setFocusable(tNombre.getDragEnabled());
+		                    	tGastoVerduleria.setText("");
+		                    	txtrIngreseGastoCarniceria.transferFocus();
+		                    	
+		                    	
+		                    }
+		                    e.consume();
+		                }
+		            }
+		        });
+			
+			
+			
+			txtrIngreseGastoCarniceria.addMouseListener(new MouseAdapter() {// SE BORRA EL MENSAJE GUIA DEL TXT AREA PARA INGRESAR EL VALOR PERTINENTE POR HACER CLICK
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					
+					
+					if(txtrIngreseGastoCarniceria.getText().equalsIgnoreCase("ingrese gasto carniceria")) {
+						txtrIngreseGastoCarniceria.setText("");
+			    	}
+					
+				}
+			});
+			
+			txtrIngreseGastoCarniceria.addKeyListener(new KeyAdapter() // SE BORRA EL MENSAJE GUIA DEL TXT AREA PARA INGRESAR EL VALOR PERTINENTE POR CUALQUIER ENTRADA DEL TECLADO
+			{
+				public void keyTyped(KeyEvent e)
+				{
+					
+					if(txtrIngreseGastoCarniceria.getText().equalsIgnoreCase("ingrese gasto carniceria")) {
+						txtrIngreseGastoCarniceria.setText("");
+					}
+				}
+			});
+
+			
+			txtrIngreseGastoCarniceria.addKeyListener(new KeyAdapter()
+		    {
+		    	public void keyTyped(KeyEvent e)
+		    	{
+		    		char caracter = e.getKeyChar();
+		    		
+		    		// Verificar si la tecla pulsada no es un digito
+		    		if(((caracter < '0') ||
+		    				(caracter > '9')) &&
+		    				(caracter != '\b' /*corresponde a BACK_SPACE*/))
+		    		{
+		    			e.consume();  // ignorar el evento de teclado
+		    			//lista.mensajeTemporizado("Ingrese solo numeros", 1000); 	//HALAR ESTE MENSAJE DESDE LISTA PARA PODER USARLO
+		    		}
+		    	}
+		    });
+		
+			txtrIngreseGastoCarniceria.addKeyListener(new KeyListener(){ //PARA LIMITAR QUE USUARIO NO INGRESE UN GASTO MAYOR A 6 CIFRAS O DIGITOS
+	    	 
+	    	public void keyTyped(KeyEvent e)
+	    	 
+	    	{if (txtrIngreseGastoCarniceria.getText().length()== 6)
+	    	 
+	    	     e.consume();
+	    	}
+	    	 
+	    	public void keyPressed(KeyEvent arg0) {
+	    	}
+	    	 
+	    	public void keyReleased(KeyEvent arg0) {
+	    	}
+	    	});
+			
+			pComida.add(txtrIngreseGastoCarniceria);
+			
+			
+			
+			
+			
+			tGastoVerduleria.setText("Ingrese gasto Verduleria");
+			tGastoVerduleria.setOpaque(false);
+			tGastoVerduleria.setForeground(Color.LIGHT_GRAY);
+			tGastoVerduleria.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
+			tGastoVerduleria.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
+			tGastoVerduleria.setBounds(75, 93, 221, 21);
+			
+			
+			
+			tGastoVerduleria.addKeyListener(new KeyAdapter()
+		    {
+		    	public void keyTyped(KeyEvent e)
+		    	{
+		    		char caracter = e.getKeyChar();
+		    		
+		    		// Verificar si la tecla pulsada no es un digito
+		    		if(((caracter < '0') ||
+		    				(caracter > '9')) &&
+		    				(caracter != '\b' /*corresponde a BACK_SPACE*/))
+		    		{
+		    			e.consume();  // ignorar el evento de teclado
+		    			//lista.mensajeTemporizado("Ingrese solo numeros", 1000); 	//HALAR ESTE MENSAJE DESDE LISTA PARA PODER USARLO
+		    		}
+		    	}
+		    });
+		
+			tGastoVerduleria.addKeyListener(new KeyListener(){ //PARA LIMITAR QUE USUARIO NO INGRESE UN GASTO MAYOR A 6 CIFRAS O DIGITOS
+	    	 
+	    	public void keyTyped(KeyEvent e)
+	    	 
+	    	{if (tGastoVerduleria.getText().length()== 6)
+	    	 
+	    	     e.consume();
+	    	}
+	    	 
+	    	public void keyPressed(KeyEvent arg0) {
+	    	}
+	    	 
+	    	public void keyReleased(KeyEvent arg0) {
+	    	}
+	    	});
+			
+			
+			pComida.add(tGastoVerduleria);
+			
 			JTextArea tIngreso = new JTextArea();
 			tIngreso.setOpaque(false);
 			tIngreso.setForeground(new Color(47, 79, 79));
@@ -595,7 +841,7 @@ import javax.swing.border.SoftBevelBorder;
 			
 			menuInserta.add(listo);
 			
-			JButton btnBorraD = new JButton("Borrar Datos");
+			JButton btnBorraD = new JButton("Borrar Datos");//PROBABLEMENTE ESTE BOTON SE DESECHARÁ
 			btnBorraD.setIcon(null);
 			btnBorraD.setFont(new Font("Dialog", Font.BOLD, 13));
 			btnBorraD.addActionListener(new ActionListener() {
@@ -621,50 +867,6 @@ import javax.swing.border.SoftBevelBorder;
 			lblNombre.setFont(new Font("Sitka Text", Font.BOLD, 15));
 			lblNombre.setBounds(10, 36, 81, 16);
 			menuInserta.add(lblNombre);
-			pPrueba.setOpaque(false);
-			pPrueba.setBackground(new Color (0, 0, 0, 50));
-			pPrueba.setBackground(new Color(128, 128, 128));
-															//pPrueba.setBackground(new Color(0,0,0,x));//BAJAR LA OPACIDAD DEL PANEL CON LA CORDENADA "X"-> última coordenada
-			pPrueba.setBounds(302, 55, 342, 258);
-			menuInserta.add(pPrueba);
-			pPrueba.setLayout(null);
-			
-			JLabel lDireccion = new JLabel("Direccion exacta:");
-			lDireccion.setForeground(new Color(47, 79, 79));
-			lDireccion.setFont(new Font("Sitka Text", Font.BOLD, 13));
-			lDireccion.setBounds(115, 135, 124, 16);
-			pPrueba.add(lDireccion);
-			
-			
-			boxAveriaEspecifica.setModel(new DefaultComboBoxModel(new String[] {"Fuga en acera", "Fuga en calle", "Fuga de hidrante"}));
-			boxAveriaEspecifica.setBounds(47, 38, 256, 26);
-			pPrueba.add(boxAveriaEspecifica);
-			
-			boxLugar.setModel(new DefaultComboBoxModel(new String[] {"Liberia", "Palmira", "Sardinal"}));
-			boxLugar.setBounds(47, 97, 256, 26);
-			pPrueba.add(boxLugar);
-			
-			JScrollPane scrollPane_2 = new JScrollPane();
-			scrollPane_2.setBounds(47, 152, 247, 83);
-			pPrueba.add(scrollPane_2);
-			
-			
-			tDireccionExacta.setWrapStyleWord(true);
-			tDireccionExacta.setLineWrap(true);
-			scrollPane_2.setViewportView(tDireccionExacta);
-			
-			JLabel lTipoAv = new JLabel("Tipo de averia");
-			lTipoAv.setForeground(new Color(47, 79, 79));
-			lTipoAv.setFont(new Font("Sitka Text", Font.BOLD, 13));
-			lTipoAv.setBounds(115, 10, 124, 16);
-			pPrueba.add(lTipoAv);
-			
-			JLabel lLugar = new JLabel("Lugar");
-			lLugar.setForeground(new Color(47, 79, 79));
-			lLugar.setFont(new Font("Sitka Text", Font.BOLD, 13));
-			lLugar.setBounds(135, 76, 104, 16);
-			pPrueba.add(lLugar);
-			pPrueba.setVisible(false);
 			
 		
 			boxTipoAveria.addActionListener(new ActionListener() {
@@ -707,6 +909,57 @@ import javax.swing.border.SoftBevelBorder;
 			lblImageInserta.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/gradientInsertar.jpeg")));
 			lblImageInserta.setBounds(0, 0, 721, 450);
 			menuInserta.add(lblImageInserta);
+			
+			JTextArea tNis = new JTextArea();
+			tNis.setOpaque(false);
+			tNis.setForeground(new Color(47, 79, 79));
+			tNis.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
+			tNis.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
+			tNis.setBounds(0, 0, 161, 21);
+			menuInserta.add(tNis);
+			pPrueba.setBackground(new Color (0, 0, 0, 50));
+			pPrueba.setBackground(new Color(128, 128, 128));
+			//pPrueba.setBackground(new Color(0,0,0,x));//BAJAR LA OPACIDAD DEL PANEL CON LA CORDENADA "X"-> última coordenada
+			pPrueba.setBounds(302, 55, 342, 258);
+			menuInserta.add(pPrueba);
+			pPrueba.setLayout(null);
+			
+			JLabel lDireccion = new JLabel("Direccion exacta:");
+			lDireccion.setForeground(new Color(47, 79, 79));
+			lDireccion.setFont(new Font("Sitka Text", Font.BOLD, 13));
+			lDireccion.setBounds(115, 135, 124, 16);
+			pPrueba.add(lDireccion);
+			
+			
+			boxAveriaEspecifica.setModel(new DefaultComboBoxModel(new String[] {"Fuga en acera", "Fuga en calle", "Fuga de hidrante"}));
+			boxAveriaEspecifica.setBounds(47, 38, 256, 26);
+			pPrueba.add(boxAveriaEspecifica);
+			
+			boxLugar.setModel(new DefaultComboBoxModel(new String[] {"Liberia", "Palmira", "Sardinal"}));
+			boxLugar.setBounds(47, 97, 256, 26);
+			pPrueba.add(boxLugar);
+			
+			JScrollPane scrollPane_2 = new JScrollPane();
+			scrollPane_2.setBounds(47, 152, 247, 83);
+			pPrueba.add(scrollPane_2);
+			
+			
+			tDireccionExacta.setWrapStyleWord(true);
+			tDireccionExacta.setLineWrap(true);
+			scrollPane_2.setViewportView(tDireccionExacta);
+			
+			JLabel lTipoAv = new JLabel("Tipo de averia");
+			lTipoAv.setForeground(new Color(47, 79, 79));
+			lTipoAv.setFont(new Font("Sitka Text", Font.BOLD, 13));
+			lTipoAv.setBounds(115, 10, 124, 16);
+			pPrueba.add(lTipoAv);
+			
+			JLabel lLugar = new JLabel("Lugar");
+			lLugar.setForeground(new Color(47, 79, 79));
+			lLugar.setFont(new Font("Sitka Text", Font.BOLD, 13));
+			lLugar.setBounds(135, 76, 104, 16);
+			pPrueba.add(lLugar);
+			pPrueba.setVisible(false);
 			
 			
 			
