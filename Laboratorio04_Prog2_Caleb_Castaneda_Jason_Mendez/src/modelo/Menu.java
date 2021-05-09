@@ -57,6 +57,9 @@ import java.awt.Frame;
 import java.awt.Point;
 import javax.swing.border.MatteBorder;
 import java.awt.Component;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.SoftBevelBorder;
 	
 	public class Menu extends JFrame {
 	
@@ -138,6 +141,12 @@ import java.awt.Component;
 			contentPane.setLayout(new CardLayout(0, 0));
 			
 			
+			
+			
+			//CREACION DEL PRIMER PANEL, INGRESO//LOGIN.
+			//CONSISTE BASICAMENTE EN EL BOTON INGRESA PARA INICIAR EL APP
+			
+			
 			JPanel inicioApp = new JPanel();
 			contentPane.add(inicioApp, "Ingreso");
 			inicioApp.setLayout(null);
@@ -154,7 +163,10 @@ import java.awt.Component;
 			txtIngreseContrasena.setHorizontalAlignment(SwingConstants.LEFT);
 			txtIngreseContrasena.setFont(new Font("Palatino Linotype", Font.PLAIN, 13));
 			txtIngreseContrasena.setEditable(false);
-			txtIngreseContrasena.setText("********");
+			
+			
+			txtIngreseContrasena.setText("********");//SIMULANDO UNA CLAVE YA CREADA 
+			
 			txtIngreseContrasena.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(95, 158, 160)));
 			txtIngreseContrasena.setBounds(10, 231, 216, 26);
 			panelLoginMade.add(txtIngreseContrasena);
@@ -165,7 +177,7 @@ import java.awt.Component;
 			txtAdmin.setFont(new Font("Palatino Linotype", Font.PLAIN, 13));
 			txtAdmin.setBackground(Color.WHITE);
 			txtAdmin.setEditable(false);
-			txtAdmin.setText("admin@UCR.com");
+			txtAdmin.setText("admin@UCR.com");//SIMULANDO UN USUARIO YA CREADO O ANTERIOMENTE LOGUEADO.
 			txtAdmin.setColumns(10);
 			txtAdmin.setBorder(new MatteBorder(0, 0, 2, 0, (Color) new Color(95, 158, 160)));
 			txtAdmin.setBounds(10, 163, 216, 26);
@@ -210,13 +222,13 @@ import java.awt.Component;
 			
 			bienvenida.setBackground(Color.WHITE);
 			
-			contentPane.add(bienvenida, "MenuPrincipal");
+			contentPane.add(bienvenida, "MenuPrincipal");//NOMBRE DEL PANEL PARA SER LLAMADO 
 			
 			
 			
 			
 			bienvenida.setLayout(null);
-			//btnActualiza.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/save_16.png")));
+			
 			
 			JButton btnbusca = new JButton("Buscar");
 			btnbusca.setHorizontalAlignment(SwingConstants.LEFT);
@@ -339,6 +351,7 @@ import java.awt.Component;
 			bienvenida.add(btnInsertar);
 			
 			//PARA QUE SE CREE UN NUEVO REPORTE EN ORDEN?
+			
 			btnInsertar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					CardLayout c = (CardLayout)(contentPane.getLayout());
@@ -733,32 +746,51 @@ import java.awt.Component;
 			menuBusca.setLayout(null);
 			
 			JLabel lBuscando = new JLabel("Buscando.");
-			lBuscando.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 15));
+			lBuscando.setForeground(new Color(0, 51, 102));
+			lBuscando.setFont(new Font("Sitka Text", Font.BOLD, 15));
 			lBuscando.setBounds(287, 6, 140, 30);
 			menuBusca.add(lBuscando);
 			
 			JTextArea tDigito = new JTextArea(); //TOMA EL DIGITO PARA BUSCAR EL PACIENTE
+			tDigito.setOpaque(false);
+			tDigito.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(0, 51, 102)));
+			tDigito.setBackground(new Color(153, 153, 153));
 			tDigito.setToolTipText("Ingresa el digito entre corchetes \"[ ]\"");
-			tDigito.setBounds(287, 48, 71, 28);
+			tDigito.setBounds(287, 47, 71, 28);
 			menuBusca.add(tDigito);
 			
 			JLabel lblDigitaPacienteA = new JLabel("Digita paciente a buscar:");
-			lblDigitaPacienteA.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 15));
-			lblDigitaPacienteA.setBounds(103, 46, 182, 30);
+			lblDigitaPacienteA.setForeground(new Color(0, 51, 102));
+			lblDigitaPacienteA.setFont(new Font("Sitka Text", Font.BOLD, 15));
+			lblDigitaPacienteA.setBounds(85, 49, 191, 30);
 			menuBusca.add(lblDigitaPacienteA);
 			
 			JScrollPane scrollPane = new JScrollPane();
-			scrollPane.setBounds(171, 110, 312, 170);
+			scrollPane.setBounds(159, 110, 408, 193);
 			menuBusca.add(scrollPane);
+			tDatosBuscar.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+			tDatosBuscar.setBackground(new Color(153, 153, 153));
 			
 			scrollPane.setViewportView(tDatosBuscar);
 			
 			JButton btnBuscar = new JButton("Buscar");
+			btnBuscar.setContentAreaFilled(false);
+			btnBuscar.setIgnoreRepaint(true);
+			btnBuscar.setFont(new Font("Sitka Text", Font.BOLD, 12));
+			btnBuscar.setForeground(Color.WHITE);
+			btnBuscar.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/buscarBusqueda.png")));
+			
+			btnBuscar.setOpaque(false);
+			btnBuscar.setContentAreaFilled(false);
+			btnBuscar.setBackground(new Color (0, 0, 0, 100));
+			
 			btnBuscar.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					
 					if(Integer.parseInt(tDigito.getText())<0) {
 					//	lista.mensajeTemporizado("Ingresa numero de paciente", 1000);
+						
+						
 					}else {
 						
 						
@@ -771,7 +803,7 @@ import java.awt.Component;
 			});
 			
 			btnBuscar.setToolTipText("Presiona para mostrar informacion.");
-			btnBuscar.setBounds(370, 48, 90, 28);
+			btnBuscar.setBounds(368, 33, 121, 52);
 			menuBusca.add(btnBuscar);
 			
 			btnHomeShorCut_2 = new JButton("");
@@ -791,6 +823,7 @@ import java.awt.Component;
 			menuBusca.add(btnHomeShorCut_2);
 			
 			JLabel lblNewLabel_2 = new JLabel("");
+			lblNewLabel_2.setForeground(new Color(51, 51, 0));
 			lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 			lblNewLabel_2.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/gradientBuscar.jpg")));
 			lblNewLabel_2.setBounds(-58, -43, 841, 538);
@@ -802,35 +835,43 @@ import java.awt.Component;
 			menuElimina.setLayout(null);
 			
 			JLabel lEliminando = new JLabel("Eliminando.");
-			lEliminando.setForeground(new Color(0, 0, 0));
+			lEliminando.setForeground(SystemColor.scrollbar);
 			lEliminando.setBackground(new Color(245, 255, 250));
 			lEliminando.setFont(new Font("Times New Roman", Font.BOLD, 18));
-			lEliminando.setBounds(312, 6, 140, 30);
+			lEliminando.setBounds(312, 11, 140, 30);
 			menuElimina.add(lEliminando);
 			
 			JTextArea tDigitoEliminar = new JTextArea();
-			tDigitoEliminar.setBackground(new Color(245, 245, 220));
+			tDigitoEliminar.setForeground(SystemColor.scrollbar);
+			tDigitoEliminar.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 15));
+			tDigitoEliminar.setOpaque(false);
+			tDigitoEliminar.setBorder(new MatteBorder(0, 0, 3, 0, (Color) SystemColor.activeCaption));
+			tDigitoEliminar.setBackground(SystemColor.activeCaption);
 			tDigitoEliminar.setToolTipText("Ingresa el digito entre corchetes \"[ ]\" del n\u00FAmero de paciente a eliminar...");
-			tDigitoEliminar.setBounds(284, 84, 48, 28);
+			tDigitoEliminar.setBounds(390, 84, 48, 28);
 			menuElimina.add(tDigitoEliminar);
 			
 			JLabel lPacienteEliminar = new JLabel("Digita paciente a eliminar:");
+			lPacienteEliminar.setForeground(SystemColor.scrollbar);
 			lPacienteEliminar.setToolTipText("");
-			lPacienteEliminar.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 15));
-			lPacienteEliminar.setBounds(81, 82, 199, 30);
+			lPacienteEliminar.setFont(new Font("Malgun Gothic", Font.BOLD, 15));
+			lPacienteEliminar.setBounds(194, 77, 199, 30);
 			menuElimina.add(lPacienteEliminar);
 			
 			JScrollPane scrollPane_1 = new JScrollPane();
-			scrollPane_1.setBounds(81, 146, 483, 224);
+			scrollPane_1.setBounds(81, 133, 579, 224);
 			menuElimina.add(scrollPane_1);
-			tInfoEliminar.setBackground(new Color(245, 245, 220));
+			tInfoEliminar.setBorder(new BevelBorder(BevelBorder.LOWERED, null, null, null, null));
+			tInfoEliminar.setBackground(SystemColor.activeCaption);
 			
 			
 			scrollPane_1.setViewportView(tInfoEliminar);
 			
-			JButton btnEliminar = new JButton("Eliminar");
+			JButton btnEliminar = new JButton("");
+			btnEliminar.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/borrarBorrado.png")));
+			btnEliminar.setContentAreaFilled(false);
 			//btnEliminar.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/trash_32.png")));
-			btnEliminar.setFont(new Font("Nirmala UI Semilight", Font.BOLD, 14));
+			btnEliminar.setFont(new Font("Sitka Text", Font.BOLD, 15));
 			btnEliminar.addActionListener(new ActionListener() {
 				
 				public void actionPerformed(ActionEvent arg0) {
@@ -844,8 +885,8 @@ import java.awt.Component;
 				
 			});
 			
-			btnEliminar.setToolTipText("Presiona para mostrar informacion.");
-			btnEliminar.setBounds(389, 65, 122, 64);
+			btnEliminar.setToolTipText("Presiona para eliminar");
+			btnEliminar.setBounds(459, 77, 48, 38);
 			menuElimina.add(btnEliminar);
 			
 			
@@ -862,8 +903,14 @@ import java.awt.Component;
 			});
 			btnHomeShorCut_1.setContentAreaFilled(false);
 			btnHomeShorCut_1.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/home.png")));
-			btnHomeShorCut_1.setBounds(301, 381, 65, 49);
+			btnHomeShorCut_1.setBounds(328, 381, 65, 49);
 			menuElimina.add(btnHomeShorCut_1);
+			
+			JLabel lblNewLabel_6 = new JLabel("");
+			lblNewLabel_6.setHorizontalTextPosition(SwingConstants.RIGHT);
+			lblNewLabel_6.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/gradientEliminar.jpeg")));
+			lblNewLabel_6.setBounds(0, 0, 721, 450);
+			menuElimina.add(lblNewLabel_6);
 			
 			
 			JPanel menuActualiza = new JPanel();
