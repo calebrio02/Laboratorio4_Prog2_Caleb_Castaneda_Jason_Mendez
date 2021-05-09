@@ -7,6 +7,16 @@ public class Aparato {
 	private String serie;
 	
 	private String modelo;
+	
+	private String problema;
+
+	public String getProblema() {
+		return problema;
+	}
+
+	public void setProblema(String problema) {
+		this.problema = problema;
+	}
 
 	public String getMarca() {
 		return marca;
