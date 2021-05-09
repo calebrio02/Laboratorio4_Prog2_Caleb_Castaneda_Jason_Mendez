@@ -1,10 +1,10 @@
 package modelo;
 
-public class GOcio extends Vivienda{
+public class GOcio extends Gasto{
 	
-	private int streaming; //Gastos en servicios online
+	private int streaming=0; //Gastos en servicios online
 	
-	private int salidas; //Salidas a restaurantes, cine, etc
+	private int salidas=0; //Salidas a restaurantes, cine, etc
 
 	public int getStreaming() {
 		return streaming;
@@ -21,7 +21,7 @@ public class GOcio extends Vivienda{
 	public void setSalidas(int salidas) {
 		this.salidas = salidas;
 	}
-	
+	@Override
 	public int calculoGasto(){
 		
 		int total=0;

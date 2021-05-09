@@ -7,8 +7,18 @@ public class Persona {
 	private String id;
 	
 	private String numTel;
+	
+	private int ingreso;
 
 	
+	public int getIngreso() {
+		return ingreso;
+	}
+
+	public void setIngreso(int ingreso) {
+		this.ingreso = ingreso;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}

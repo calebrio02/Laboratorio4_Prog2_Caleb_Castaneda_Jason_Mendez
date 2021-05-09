@@ -1,12 +1,12 @@
 package modelo;
 
-public class GComida  extends Vivienda{
+public class GComida  extends Gasto{
 	
-	private int supermercado;
+	private int supermercado=0;
 	
-	private int carniceria;
+	private int carniceria=0;
 	
-	private int verduleria;
+	private int verduleria=0;
 	
 	
 
@@ -38,7 +38,7 @@ public class GComida  extends Vivienda{
 		this.verduleria = verduleria;
 	}
 	
-	
+	@Override
 	public int calculoGasto() {
 		
 		int total=0;
@@ -46,6 +46,7 @@ public class GComida  extends Vivienda{
 		total=(getSupermercado()+getCarniceria()+getVerduleria());
 		return total;
 	}
+	
 	@Override
 	public String mostrar() {
 		

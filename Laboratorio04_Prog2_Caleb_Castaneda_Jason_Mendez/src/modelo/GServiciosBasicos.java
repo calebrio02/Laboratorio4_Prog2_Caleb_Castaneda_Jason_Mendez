@@ -1,14 +1,14 @@
 package modelo;
 
-public class GServiciosBasicos extends Vivienda{
+public class GServiciosBasicos extends Gasto{
 
-	private int agua;
+	private int agua =0;
 	
-	private int luz;
+	private int luz =0;
 	
-	private int cableInternet;
+	private int cableInternet=0;
 	
-	private int transporte;
+	private int transporte=0;
 
 	public int getAgua() {
 		return agua;
@@ -41,7 +41,7 @@ public class GServiciosBasicos extends Vivienda{
 	public void setTransporte(int transporte) {
 		this.transporte = transporte;
 	}
-
+	@Override
 	public int calculoGasto() {
 		
 		int total=0;
@@ -67,6 +67,8 @@ public class GServiciosBasicos extends Vivienda{
 
 
 	public void ingresar(int agua,int luz, int internet, int transporte) {
+		
+	
 		
 		setAgua(agua);
 		setLuz(luz);

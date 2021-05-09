@@ -1,27 +1,10 @@
 package modelo;
 
-public class Gasto {
+public abstract class Gasto {
 	
-	private int ingreso;
+
+	public abstract int calculoGasto();
 	
-	private int gastoTotal;
-
-	public int getIngreso() {
-		return ingreso;
-	}
-
-	public void setIngreso(int ingreso) {
-		this.ingreso = ingreso;
-	}
-
-	public int getGastoTotal() {
-		return gastoTotal;
-	}
-
-	public void setGastoTotal(int gastoTotal) {
-		this.gastoTotal = gastoTotal;
-	}
-	
-	
+	public abstract String mostrar();
 
 }
