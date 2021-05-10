@@ -35,10 +35,10 @@ public class GOcio extends Gasto{
 		
 		String mensaje="";
 		
-		mensaje+="Gastos en Ocio /n/n"
-				+"Online (Netflix, juegos, etc): ¢"+getStreaming()+"/n"
-				+"Salidas: ¢" +getSalidas()+"/n"
-				+"Total: ¢" +calculoGasto()+"/n/n";
+		mensaje+="Gastos en Ocio \n\n"
+				+"Online (Netflix, juegos, etc): ¢"+getStreaming()+"\n"
+				+"Salidas: ¢" +getSalidas()+"\n"
+				+"Total: ¢" +calculoGasto()+"\n\n";
 		
 		return mensaje;
 	}

@@ -107,13 +107,13 @@ public class Vivienda {
 		
 		calculaTotal();
 		String mensaje="";
-		mensaje="Control de gastos /n/n"
+		mensaje="Control de gastos \n\n"
 			   +p.muestraPersona()
 			   +sb.mostrar()
 			   +comida.mostrar()
 			   +ocio.mostrar()
-			   +"Total de gastos: ¢"+getGastoTotal()+"/n"+
-			   "----------------------------------/n/n";
+			   +"Total de gastos: ¢"+getGastoTotal()+"\n"+
+			   "----------------------------------\n\n";
 				
 		return mensaje;
 	}

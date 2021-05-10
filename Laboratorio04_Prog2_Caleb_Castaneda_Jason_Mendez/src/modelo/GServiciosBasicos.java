@@ -56,12 +56,12 @@ public class GServiciosBasicos extends Gasto{
 		
 		String mensaje="";
 		
-		mensaje+="Gastos servicios básicos /n"
-				+"Electricidad: ¢"+getLuz()+"/n"
-				+"Agua: ¢"+getAgua()+"/n"
-				+"Cable e internet ¢"+getCableInternet()+"/n"
-				+"Transporte: ¢" +getTransporte()+"/n"
-				+"Total: ¢"+calculoGasto()+"/n/n";
+		mensaje+="Gastos servicios básicos \n\n"
+				+"Electricidad: ¢"+getLuz()+"\n"
+				+"Agua: ¢"+getAgua()+"\n"
+				+"Cable e internet ¢"+getCableInternet()+"\n"
+				+"Transporte: ¢" +getTransporte()+"\n"
+				+"Total: ¢"+calculoGasto()+"\n\n";
 		return mensaje;
 	}
 

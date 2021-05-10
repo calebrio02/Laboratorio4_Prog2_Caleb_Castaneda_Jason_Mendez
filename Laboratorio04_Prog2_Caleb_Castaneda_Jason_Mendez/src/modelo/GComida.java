@@ -52,11 +52,11 @@ public class GComida  extends Gasto{
 		
 		String mensaje ="";
 		
-		 mensaje+="Gastos en comida /n/n"
-		 		+ "Supermercado: ¢"+ getSupermercado()+"/n"
-		 		+ "Carniceria: ¢"+getCarniceria()+"/n"
-		 		+ "Verduleria: ¢"+getVerduleria()+"/n"
-		 		+ "Total: ¢ "+calculoGasto()+"/n/n";
+		 mensaje+="Gastos en comida \n\n"
+		 		+ "Supermercado: ¢"+ getSupermercado()+"\n"
+		 		+ "Carniceria: ¢"+getCarniceria()+"\n"
+		 		+ "Verduleria: ¢"+getVerduleria()+"\n"
+		 		+ "Total: ¢ "+calculoGasto()+"\n\n";
 		
 		return mensaje;
 	}

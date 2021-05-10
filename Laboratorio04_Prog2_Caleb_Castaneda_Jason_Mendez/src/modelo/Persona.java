@@ -26,7 +26,7 @@ public class Persona {
 	public String muestraPersona() {
 		String mensaje;
 		mensaje = "Nombre: " + getNombre() + "\n"
-			    + "Ingreso: ¢ " + getIngreso() + "\n/n";
+			    + "Ingreso: ¢ " + getIngreso() + "\n\n";
 				
 		
 		
