@@ -79,7 +79,7 @@ public class Lista {
 							JOptionPane.showMessageDialog(null, l.get(d-1).mostrar()); 
 						}
 						}catch (Exception e) {
-							mensajeTemporizado("Paciente no existe", 800);
+							mensajeTemporizado("Registro no existe", 800);
 
 						}
 					
@@ -101,7 +101,7 @@ public class Lista {
 							
 						}
 						}catch (Exception e) {
-							mensajeTemporizado("Paciente no existe", 800);
+							mensajeTemporizado("Registro no existe", 800);
 							
 						}
 					
@@ -134,12 +134,12 @@ public class Lista {
 					}else {
 						
 						l.remove((d-1));
-						mensajeTemporizado("Paciente [" + d + "]" + "eliminado", 800);
+						mensajeTemporizado("Registro [" + d + "]" + "eliminado", 800);
 						size--;
 					}
 					
 					}catch (Exception e) {
-						mensajeTemporizado("Paciente no existe", 800);
+						mensajeTemporizado("Registro no existe", 800);
 					}
 				
 				
@@ -200,7 +200,7 @@ public class Lista {
 							
 						}
 						}catch (Exception e) {
-							mensajeTemporizado("Paciente no existe", 800);
+							mensajeTemporizado("Registro no existe", 800);
 							existe = false;
 						}
 					return existe;
