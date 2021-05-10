@@ -102,6 +102,11 @@ import java.awt.event.MouseAdapter;
 		private JTextField txtIngreseContrasena;
 		private JTextField txtAdmin;
 		
+		
+		//////////////TXTPERSONA//////////////
+		JTextArea tNombre = new JTextArea();
+		JTextArea tIngreso = new JTextArea();
+		
 		/////////TXTSBASICOS/////
 		JTextArea tAgua = new JTextArea();
 		JTextArea tTransporte = new JTextArea();
@@ -395,12 +400,35 @@ import java.awt.event.MouseAdapter;
 			btnActualiza.setBounds(0, 224, 185, 51);
 			bienvenida.add(btnActualiza);
 			btnActualiza.addActionListener(new ActionListener() {
+				
 				public void actionPerformed(ActionEvent e) {
+					
+					
 					CardLayout c = (CardLayout)(contentPane.getLayout());
 					c.show(contentPane, "t5");
 					indiceModificar=1;
 					
 					tArchivadasAc.setText(lista.acumulaDatos());
+					v = lista.buscar(1);
+					
+					tNombreAc.setText(v.getP().getNombre());
+					tIngresoAc.setText(Integer.toString(v.getP().getIngreso()));
+					
+					
+					tAguaAc.setText(Integer.toString(v.getSb().getAgua()));
+					tLuzAc.setText(Integer.toString(v.getSb().getLuz()));
+					tCableinternetAc.setText(Integer.toString(v.getSb().getCableInternet()));
+					tTransporteAc.setText(Integer.toString(v.getSb().getTransporte()));
+					
+					tSupermercadoAc.setText(Integer.toString(v.getComida().getSupermercado()));
+					tCarniceriaAc.setText(Integer.toString(v.getComida().getCarniceria()));
+					tVerduleriaAc.setText(Integer.toString(v.getComida().getVerduleria()));
+					
+					tSuscripcionAc.setText(Integer.toString(v.getOcio().getStreaming()));
+					tSalidasAc.setText(Integer.toString(v.getOcio().getSalidas()));
+					
+					
+					
 					
 					
 					
@@ -482,6 +510,8 @@ import java.awt.event.MouseAdapter;
 			
 			contentPane.add(menuInserta, "t1");
 			menuInserta.setLayout(null);
+			
+			
 			
 			JLabel lblGastosDeSupermercado = new JLabel("Gastos de Comida:");
 			lblGastosDeSupermercado.setHorizontalAlignment(SwingConstants.CENTER);
@@ -1482,6 +1512,7 @@ import java.awt.event.MouseAdapter;
 			
 			menuInserta.add(listo);
 			
+			
 			JButton btnBorraD = new JButton("Borrar Datos");//PROBABLEMENTE ESTE BOTON SE DESECHARÁ
 			btnBorraD.setToolTipText("refresca el menu");
 			btnBorraD.setIcon(null);
@@ -1561,6 +1592,8 @@ import java.awt.event.MouseAdapter;
 			txtrSupermercado_1.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
 			txtrSupermercado_1.setBounds(403, 255, 221, 21);
 			menuInserta.add(txtrSupermercado_1);
+			
+			
 			
 			
 			
@@ -1743,6 +1776,21 @@ import java.awt.event.MouseAdapter;
 			contentPane.add(menuActualiza, "t5");
 			menuActualiza.setLayout(null);
 			
+			JButton btnHomeShorCut_3 = new JButton("");
+			btnHomeShorCut_3.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					menuActualiza.setVisible(false);
+					bienvenida.setVisible(true);
+					
+				}
+			});
+			btnHomeShorCut_3.setIcon(new ImageIcon(Menu.class.getResource("/modelo/images/home.png")));
+			btnHomeShorCut_3.setToolTipText("Regresar a menu prinicipal");
+			btnHomeShorCut_3.setOpaque(false);
+			btnHomeShorCut_3.setContentAreaFilled(false);
+			btnHomeShorCut_3.setBounds(314, 379, 61, 53);
+			menuActualiza.add(btnHomeShorCut_3);
+			
 			JLabel lblNewLabel = new JLabel("Registro de gastos");
 			lblNewLabel.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 13));
 			lblNewLabel.setBounds(28, 14, 165, 18);
@@ -1754,46 +1802,30 @@ import java.awt.event.MouseAdapter;
 				
 				public void actionPerformed(ActionEvent e) {
 					
-				//	p = arbol.buscarActualizar(Integer.parseInt(tBuscaReporte.getText()));
+					indiceModificar++;
 					
+					v = lista.buscar(indiceModificar);
 					
-					
-				/*	
-					tNombreAc.setText(p.c.getNombre());
-					tCedulaAc.setText(p.c.getCedula());
-					tNisAc.setText(p.c.getNis());
-					tResidenciaAC.setText(p.c.getlResidencia());
-					tAveriaReportadaAc.setText(p.muestraCliente());
-					if(p.getTipoAveria().equalsIgnoreCase("residencial")) {
-						boxAveriaAc.setSelectedIndex(1);
-					}else if(p.getTipoAveria().equalsIgnoreCase("publica")) {
-						boxAveriaAc.setSelectedIndex(2);
+					if(v.getP().getNombre()!=null) {
+						tNombreAc.setText(v.getP().getNombre());
+						tIngresoAc.setText(Integer.toString(v.getP().getIngreso()));
 						
 						
-						if(p.getDetalleA().equalsIgnoreCase("fuga en acera")) {
-							boxTipoAveriaAc.setSelectedIndex(1);
-							
-						}else if (p.getDetalleA().equalsIgnoreCase("fuga en calle")){
-							boxTipoAveriaAc.setSelectedIndex(2);
-						}else if (p.getDetalleA().equalsIgnoreCase("fuga de hidrante")){
-							boxTipoAveriaAc.setSelectedIndex(3);
-							
-						}
+						tAguaAc.setText(Integer.toString(v.getSb().getAgua()));
+						tLuzAc.setText(Integer.toString(v.getSb().getLuz()));
+						tCableinternetAc.setText(Integer.toString(v.getSb().getCableInternet()));
+						tTransporteAc.setText(Integer.toString(v.getSb().getTransporte()));
 						
-						if(p.getLugar().equalsIgnoreCase("liberia")) {
-							boxLugarAc.setSelectedIndex(1);
-							
-						}else if (p.getLugar().equalsIgnoreCase("palmira")){
-							boxLugarAc.setSelectedIndex(2);
-						}else if (p.getLugar().equalsIgnoreCase("sardinal")){
-							
-							boxLugarAc.setSelectedIndex(3);
-						}
+						tSupermercadoAc.setText(Integer.toString(v.getComida().getSupermercado()));
+						tCarniceriaAc.setText(Integer.toString(v.getComida().getCarniceria()));
+						tVerduleriaAc.setText(Integer.toString(v.getComida().getVerduleria()));
 						
-						tDireccionExactaAc.setText(p.getDireccionExacta());
+						tSuscripcionAc.setText(Integer.toString(v.getOcio().getStreaming()));
+						tSalidasAc.setText(Integer.toString(v.getOcio().getSalidas()));
+						
+					}else {
+						indiceModificar--;
 					}
-					
-					*/
 					
 				}
 			});
@@ -1809,6 +1841,41 @@ import java.awt.event.MouseAdapter;
 			tArchivadasAc.setEditable(false);
 			
 			JButton btnAnteriorAc = new JButton("Anterior");
+			btnAnteriorAc.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+					
+					
+					
+						indiceModificar--;
+					
+					v = lista.buscar(indiceModificar);
+					
+					if(v.getP().getNombre()!=null) {
+						tNombreAc.setText(v.getP().getNombre());
+						tIngresoAc.setText(Integer.toString(v.getP().getIngreso()));
+						
+						
+						tAguaAc.setText(Integer.toString(v.getSb().getAgua()));
+						tLuzAc.setText(Integer.toString(v.getSb().getLuz()));
+						tCableinternetAc.setText(Integer.toString(v.getSb().getCableInternet()));
+						tTransporteAc.setText(Integer.toString(v.getSb().getTransporte()));
+						
+						tSupermercadoAc.setText(Integer.toString(v.getComida().getSupermercado()));
+						tCarniceriaAc.setText(Integer.toString(v.getComida().getCarniceria()));
+						tVerduleriaAc.setText(Integer.toString(v.getComida().getVerduleria()));
+						
+						tSuscripcionAc.setText(Integer.toString(v.getOcio().getStreaming()));
+						tSalidasAc.setText(Integer.toString(v.getOcio().getSalidas()));
+						
+					}else {
+						indiceModificar++;
+					}
+					
+					
+					
+				}
+			});
 			btnAnteriorAc.setBounds(422, 13, 89, 23);
 			menuActualiza.add(btnAnteriorAc);
 			
@@ -1946,29 +2013,179 @@ import java.awt.event.MouseAdapter;
 			menuActualiza.add(tNombreAc);
 			
 			JButton listoAc = new JButton("Listo!");
+			
+			
+			listoAc.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					if(tNombreAc.getText().isEmpty()) {
+						lista.mensajeTemporizado("Agregue su nombre", 1000);
+						
+					
+					
+						 
+					}else {
+							
+						
+						
+						
+						
+					v = new Vivienda();
+						
+							
+							
+							int agua=0;
+							int luz=0;
+							int cInternet=0;
+							int transporte=0;
+							int supermercado=0;
+							int carniceria=0;
+							int verduleria=0;
+							int suscripcion=0;
+							int salidas=0;
+						
+							if(tAguaAc.getText().equalsIgnoreCase("ingrese gasto Agua")||tAguaAc.getText().equalsIgnoreCase("")) {
+								
+								v.sb.setAgua(0);
+								
+							}else {
+								agua = Integer.parseInt(tAgua.getText());
+							}
+							if(tLuzAc.getText().equalsIgnoreCase("ingrese gasto luz")||tLuzAc.getText().equalsIgnoreCase("")){
+								v.sb.setLuz(0);
+							
+							}else {
+								
+								 luz = Integer.parseInt(tLuz.getText());
+							}
+							
+								if(tCableinternetAc.getText().equalsIgnoreCase("ingrese gasto cable-internet")||tCableinternetAc.getText().equalsIgnoreCase("")){
+								
+								v.sb.setCableInternet(0);
+								
+							}else {
+								cInternet = Integer.parseInt(tCableinternet.getText());
+							}
+								if(tTransporteAc.getText().equalsIgnoreCase("ingrese gasto transporte")||tTransporteAc.getText().equalsIgnoreCase("")) {
+								
+								v.sb.setTransporte(0);
+								
+							}else {
+								transporte = Integer.parseInt(tTransporte.getText());
+							}
+								
+								
+								if(tSupermercadoAc.getText().equalsIgnoreCase("ingrese gasto supermercado")||tSupermercadoAc.getText().equalsIgnoreCase("")) {
+								v.comida.setSupermercado(0);
+							}else {
+								supermercado = Integer.parseInt(tSupermercado.getText());
+							}
+								
+								if (tCarniceriaAc.getText().equalsIgnoreCase("ingrese gasto carniceria")||tCarniceriaAc.getText().equalsIgnoreCase("")) {
+								v.comida.setCarniceria(0);
+								
+							}else {
+								carniceria = Integer.parseInt(tCarniceria.getText());
+							}
+								if(tVerduleriaAc.getText().equalsIgnoreCase("ingrese gasto verduleria")||tVerduleriaAc.getText().equalsIgnoreCase("")) {
+								v.comida.setVerduleria(0);
+								
+							}else {
+								verduleria = Integer.parseInt(tVerduleria.getText());
+							}
+								if(tSuscripcionAc.getText().equalsIgnoreCase("ingrese gasto suscripciones")||tSuscripcionAc.getText().equalsIgnoreCase("")) {
+								v.ocio.setStreaming(0);
+								
+							}else {
+								suscripcion = Integer.parseInt(tSuscripcion.getText());
+							}
+								if(tSalidasAc.getText().equalsIgnoreCase("ingrese gasto salidas")||tSalidasAc.getText().equalsIgnoreCase("")) {
+								
+								v.ocio.setSalidas(0);
+							
+							}else {
+								salidas = Integer.parseInt(tSalidas.getText());
+							}
+							
+								
+							v.ingresaP(tNombreAc.getText(),Integer.parseInt(tIngresoAc.getText()));
+							v.ingresaSB(agua, luz, cInternet, transporte);
+							v.ingresaC(supermercado, carniceria, verduleria);
+							v.ingresaO(suscripcion, salidas);
+							
+							
+						
+							
+							v.setIndiceGuia(indiceModificar);
+							
+							
+							lista.actualizar(indiceModificar,v);
+							
+							lista.mensajeTemporizado("Datos agregados!", 1200);
+							
+							
+	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+							
+							tNombre.setText("");
+							tIngreso.setText("");
+							
+							tAgua.setText("Ingrese gasto Agua");
+							tLuz.setText("Ingrese gasto Luz");
+							tCableinternet.setText("Ingrese gasto Cable-Internet");
+							tTransporte.setText("Ingrese gasto Transporte");
+
+							tSupermercado.setText("Ingrese gasto Supermercado");
+							tCarniceria.setText("Ingrese gasto Carniceria");
+							tVerduleria.setText("Ingrese gasto Verduleria");
+							
+							tSuscripcion.setText("Ingrese gasto Suscripciones");
+							tSalidas.setText("Ingrese gasto Salidas");
+								
+								
+								
+						}
+				}
+						
+			});
+			
+			JButton btnBorraDAc = new JButton("Borrar Datos");//PROBABLEMENTE ESTE BOTON SE DESECHARÁ
+			btnBorraDAc.setToolTipText("refresca el menu");
+			btnBorraDAc.setIcon(null);
+			btnBorraDAc.setFont(new Font("Dialog", Font.BOLD, 13));
+			btnBorraDAc.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					
+					
+					
+					tNombreAc.setText("");
+					tIngresoAc.setText("");
+					
+					tAgua.setText("Ingrese gasto Agua");
+					tLuz.setText("Ingrese gasto Luz");
+					tCableinternet.setText("Ingrese gasto Cable-Internet");
+					tTransporte.setText("Ingrese gasto Transporte");
+
+					tSupermercado.setText("Ingrese gasto Supermercado");
+					tCarniceria.setText("Ingrese gasto Carniceria");
+					tVerduleria.setText("Ingrese gasto Verduleria");
+					
+					tSuscripcion.setText("Ingrese gasto Suscripciones");
+					tSalidas.setText("Ingrese gasto Salidas");
+					
+					
+					
+				}
+			});
+
 			listoAc.setToolTipText("finalizar de agregar los datos");
 			listoAc.setFont(new Font("Dialog", Font.BOLD, 13));
-			listoAc.setBounds(415, 379, 122, 29);
+			listoAc.setBounds(476, 379, 122, 29);
 			menuActualiza.add(listoAc);
-			
-			JButton btnBorraD_1 = new JButton("Borrar Datos");
-			btnBorraD_1.setToolTipText("refresca el menu");
-			btnBorraD_1.setFont(new Font("Dialog", Font.BOLD, 13));
-			btnBorraD_1.setBounds(547, 379, 129, 29);
-			menuActualiza.add(btnBorraD_1);
 			
 			JLabel lblNombre_1 = new JLabel("Nombre:");
 			lblNombre_1.setForeground(new Color(47, 79, 79));
 			lblNombre_1.setFont(new Font("Sitka Text", Font.BOLD, 15));
 			lblNombre_1.setBounds(28, 60, 81, 16);
 			menuActualiza.add(lblNombre_1);
-			
-			JButton btnHomeShorCut_3 = new JButton("");
-			btnHomeShorCut_3.setToolTipText("Regresar a menu prinicipal");
-			btnHomeShorCut_3.setOpaque(false);
-			btnHomeShorCut_3.setContentAreaFilled(false);
-			btnHomeShorCut_3.setBounds(314, 379, 61, 53);
-			menuActualiza.add(btnHomeShorCut_3);
 			
 			
 			

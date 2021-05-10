@@ -111,10 +111,10 @@ public class Lista {
 					
 			}
 			
-			public void actualizar(int indice, Vivienda p) {//metodo para buscar un cliente en especifico
+			public void actualizar(int indice, Vivienda v) {//metodo para buscar un cliente en especifico
 				//la variable "d" se utiliza para recibir el dato del JTxtField
 				
-				l.set((indice-1), p);
+				l.set((indice-1), v);
 				
 			}
 			
