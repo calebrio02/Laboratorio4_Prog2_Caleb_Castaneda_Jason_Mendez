@@ -88,20 +88,7 @@ import java.awt.event.MouseAdapter;
 		JTextArea tDatosBuscar = new JTextArea();
 		JTextArea datos = new JTextArea();
 		JTextArea tInfoEliminar = new JTextArea();
-		
-		
-		/////////////ACTUALIZA///////////////////
-		JPanel panelDetalleAveria = new JPanel();
-		JTextArea tNombreAc = new JTextArea();
-		JTextArea tCedulaAc = new JTextArea();
-		JTextArea tNisAc = new JTextArea();
-		JTextArea tResidenciaAC = new JTextArea();
-		JTextArea tAveriaReportadaAc = new JTextArea();
-		JTextArea tArchivadas = new JTextArea();
-		JComboBox boxAveriaAc = new JComboBox();
-		JComboBox boxTipoAveriaAc = new JComboBox();
-		JComboBox boxLugarAc = new JComboBox();
-		JTextArea tDireccionExactaAc = new JTextArea();
+		JTextArea tArchivadasAc = new JTextArea();
 		
 		/////BOTON HOME/////
 		
@@ -112,8 +99,6 @@ import java.awt.event.MouseAdapter;
 		
 		private JPanel menuElimina;
 		private JPanel menuBusca;
-		private JPanel panelActulizaDatosGenerales;
-		private JTextField tBuscaReporte;
 		private JTextField txtIngreseContrasena;
 		private JTextField txtAdmin;
 		
@@ -134,6 +119,22 @@ import java.awt.event.MouseAdapter;
 		JTextArea tSalidas = new JTextArea();
 		JTextArea tSuscripcion = new JTextArea();
 		
+		
+		///////////////ACTUALIZAR/////////////////
+		JTextArea tNombreAc = new JTextArea();
+		JTextArea tIngresoAc = new JTextArea();
+		
+		JTextArea tAguaAc = new JTextArea();
+		JTextArea tLuzAc = new JTextArea();
+		JTextArea tCableinternetAc = new JTextArea();
+		JTextArea tTransporteAc = new JTextArea();
+		
+		JTextArea tSupermercadoAc = new JTextArea();
+		JTextArea tCarniceriaAc = new JTextArea();
+		JTextArea tVerduleriaAc = new JTextArea();
+		
+		JTextArea tSuscripcionAc = new JTextArea();
+		JTextArea tSalidasAc = new JTextArea();
 		
 		
 		/**
@@ -399,7 +400,10 @@ import java.awt.event.MouseAdapter;
 					c.show(contentPane, "t5");
 					indiceModificar=1;
 					
-					//tArchivadas.setText(arbol.acumulaDatos());
+					tArchivadasAc.setText(lista.acumulaDatos());
+					
+					
+					
 					
 					
 				}
@@ -504,7 +508,7 @@ import java.awt.event.MouseAdapter;
 			menuInserta.add(lblGastosDeServicios);
 			
 			
-			tSalidas.setToolTipText("En relacion a gastos de ocio");
+			tSalidas.setToolTipText("En relacion a gastos de ocio, ingresa el gasto de salidas");
 			tSalidas.setText("Ingrese gasto Salidas");
 			tSalidas.setOpaque(false);
 			tSalidas.setForeground(new Color(105, 105, 105));
@@ -601,7 +605,7 @@ import java.awt.event.MouseAdapter;
 			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			menuInserta.add(tSalidas);
 			
-			tSuscripcion.setToolTipText("En relacion a gastos de ocio, si usas servicios tales como: netflix, spotify...");
+			tSuscripcion.setToolTipText("En relacion a gastos de ocio, si usas servicios tales como: netflix, spotify...\r\ningresa el monto");
 			tSuscripcion.setText("Ingrese gasto Suscripciones");
 			tSuscripcion.setOpaque(false);
 			tSuscripcion.setForeground(new Color(105, 105, 105));
@@ -702,6 +706,7 @@ import java.awt.event.MouseAdapter;
 			
 			
 			menuInserta.add(tSuscripcion);
+			tVerduleria.setToolTipText("ingrese gasto verduleria");
 			
 			
 			tVerduleria.setBounds(403, 154, 221, 21);
@@ -783,6 +788,7 @@ import java.awt.event.MouseAdapter;
 	    	public void keyReleased(KeyEvent arg0) {
 	    	}
 	    	});
+			tSupermercado.setToolTipText("ingrese gasto supermercado");
 			tSupermercado.setBounds(403, 72, 221, 21);
 			menuInserta.add(tSupermercado);
 			
@@ -875,6 +881,7 @@ import java.awt.event.MouseAdapter;
 		    	public void keyReleased(KeyEvent arg0) {
 		    	}
 		    	});
+			tCarniceria.setToolTipText("ingrese gasto carniceria");
 			
 			
 			tCarniceria.setBounds(403, 111, 221, 21);
@@ -964,6 +971,7 @@ import java.awt.event.MouseAdapter;
 	    	public void keyReleased(KeyEvent arg0) {
 	    	}
 	    	});
+			tAgua.setToolTipText("ingrese gasto agua");
 			
 			
 			
@@ -1046,6 +1054,7 @@ import java.awt.event.MouseAdapter;
 			tAgua.setForeground(new Color(105, 105, 105));
 			tAgua.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
 			tAgua.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
+			tTransporte.setToolTipText("ingrese gasto transporte");
 		
 			
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1125,6 +1134,7 @@ import java.awt.event.MouseAdapter;
 			tTransporte.setForeground(new Color(105, 105, 105));
 			tTransporte.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
 			tTransporte.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
+			tLuz.setToolTipText("ingrese gasto luz");
 			
 			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			
@@ -1206,6 +1216,7 @@ import java.awt.event.MouseAdapter;
 			tLuz.setForeground(new Color(105, 105, 105));
 			tLuz.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
 			tLuz.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
+			tCableinternet.setToolTipText("ingrese gasto cable-internet");
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			
 			
@@ -1289,6 +1300,7 @@ import java.awt.event.MouseAdapter;
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			
 			JTextArea tIngreso = new JTextArea();
+			tIngreso.setToolTipText("especifique el ingreso/salario");
 			tIngreso.setOpaque(false);
 			tIngreso.setForeground(new Color(47, 79, 79));
 			tIngreso.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
@@ -1303,6 +1315,7 @@ import java.awt.event.MouseAdapter;
 			menuInserta.add(lblResidencia);
 			
 			JTextArea tNombre = new JTextArea();
+			tNombre.setToolTipText("Ingrese el nombre ");
 			tNombre.setForeground(new Color(47, 79, 79));
 			tNombre.setOpaque(false);
 			tNombre.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
@@ -1329,7 +1342,7 @@ import java.awt.event.MouseAdapter;
 			JButton listo = new JButton("Listo!");
 			//listo.setIcon(new ImageIcon(Menu.class.getResource("/vista/iconsImages/tick_16.png")));
 			listo.setSelectedIcon(new ImageIcon("\\\\Mac\\Home\\Downloads\\Basic_set\\Basic_set_Png\\Basic_set_Png\\tick_16.png"));
-			listo.setToolTipText("Ingresa los datos correspondiente");
+			listo.setToolTipText("finalizar de agregar los datos");
 			listo.setFont(new Font("Dialog", Font.BOLD, 13));
 			listo.setBounds(415, 353, 122, 29);
 			
@@ -1470,6 +1483,7 @@ import java.awt.event.MouseAdapter;
 			menuInserta.add(listo);
 			
 			JButton btnBorraD = new JButton("Borrar Datos");//PROBABLEMENTE ESTE BOTON SE DESECHARÁ
+			btnBorraD.setToolTipText("refresca el menu");
 			btnBorraD.setIcon(null);
 			btnBorraD.setFont(new Font("Dialog", Font.BOLD, 13));
 			btnBorraD.addActionListener(new ActionListener() {
@@ -1729,172 +1743,13 @@ import java.awt.event.MouseAdapter;
 			contentPane.add(menuActualiza, "t5");
 			menuActualiza.setLayout(null);
 			
-			JLabel lblNewLabel = new JLabel("AVERIAS ARCHIVADAS");
+			JLabel lblNewLabel = new JLabel("Registro de gastos");
 			lblNewLabel.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 13));
-			lblNewLabel.setBounds(10, 14, 165, 18);
+			lblNewLabel.setBounds(28, 14, 165, 18);
 			menuActualiza.add(lblNewLabel);
 			
-			
-			
-			panelActulizaDatosGenerales = new JPanel();
-			panelActulizaDatosGenerales.setBackground(new Color(233, 150, 122));
-			panelActulizaDatosGenerales.setBounds(0, 54, 724, 367);
-			menuActualiza.add(panelActulizaDatosGenerales);
-			panelActulizaDatosGenerales.setLayout(null);
-			
-			JLabel lblNombreAc = new JLabel("NOMBRE:");
-			lblNombreAc.setBounds(10, 11, 70, 14);
-			panelActulizaDatosGenerales.add(lblNombreAc);
-			
-			JLabel lblCedulaAc = new JLabel("CEDULA:");
-			lblCedulaAc.setBounds(10, 42, 70, 14);
-			panelActulizaDatosGenerales.add(lblCedulaAc);
-			
-			JLabel lblNisAc = new JLabel("NIS:");
-			lblNisAc.setBounds(10, 67, 66, 14);
-			panelActulizaDatosGenerales.add(lblNisAc);
-			
-			JLabel lblNewLabel_1_3 = new JLabel("RESIDENCIA:");
-			lblNewLabel_1_3.setBounds(10, 98, 81, 14);
-			panelActulizaDatosGenerales.add(lblNewLabel_1_3);
-			
-			tCedulaAc.setBounds(86, 37, 132, 19);
-			panelActulizaDatosGenerales.add(tCedulaAc);
-			
-			
-			tNisAc.setBounds(86, 62, 132, 19);
-			panelActulizaDatosGenerales.add(tNisAc);
-			
-			JScrollPane scrollPane_4 = new JScrollPane();
-			scrollPane_4.setBounds(86, 92, 132, 24);
-			panelActulizaDatosGenerales.add(scrollPane_4);
-			
-			tResidenciaAC.setWrapStyleWord(true);
-			tResidenciaAC.setLineWrap(true);
-			scrollPane_4.setViewportView(tResidenciaAC);
-			
-			JScrollPane scrollPane_5 = new JScrollPane();
-			scrollPane_5.setBounds(86, 5, 132, 24);
-			panelActulizaDatosGenerales.add(scrollPane_5);
-			
-			tNombreAc.setLineWrap(true);
-			tNombreAc.setWrapStyleWord(true);
-			scrollPane_5.setViewportView(tNombreAc);
-			
-			JLabel lblAveriaAc = new JLabel("AVERIA REPORTADA:");
-			lblAveriaAc.setBounds(10, 153, 111, 14);
-			panelActulizaDatosGenerales.add(lblAveriaAc);
-			
-			JScrollPane scrollPaneAveriaAc = new JScrollPane();
-			scrollPaneAveriaAc.setBounds(10, 171, 337, 110);
-			panelActulizaDatosGenerales.add(scrollPaneAveriaAc);
-			
-			
-			scrollPaneAveriaAc.setViewportView(tAveriaReportadaAc);
-			
-			
-			boxAveriaAc.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if(boxAveriaAc.getSelectedItem().toString().equals("Publica")) {
-						
-						panelDetalleAveria.setVisible(true);
-						
-					}else {
-						panelDetalleAveria.setVisible(false);
-					}
-					
-				}
-			});
-			
-			boxAveriaAc.setModel(new DefaultComboBoxModel(new String[] {"Selecciona averia", "Residencial", "Publica"}));
-			boxAveriaAc.setBounds(10, 292, 132, 24);
-			panelActulizaDatosGenerales.add(boxAveriaAc);
-			
-			
-			panelDetalleAveria.setBackground(new Color(147, 112, 219));
-			panelDetalleAveria.setBounds(357, 0, 367, 367);
-			panelActulizaDatosGenerales.add(panelDetalleAveria);
-			panelDetalleAveria.setLayout(null);
-			
-			JLabel lblDetalleAc = new JLabel("DETALLA AVERIA PUBLICA");
-			lblDetalleAc.setBounds(109, 11, 178, 26);
-			panelDetalleAveria.add(lblDetalleAc);
-			
-			boxTipoAveriaAc.setModel(new DefaultComboBoxModel(new String[] {"Escoge tipo de averia", "Fuga en acera", "Fuga en calle", "Fuga de hidrante"}));
-			boxTipoAveriaAc.setBounds(109, 77, 166, 26);
-			panelDetalleAveria.add(boxTipoAveriaAc);
-			
-			boxLugarAc.setModel(new DefaultComboBoxModel(new String[] {"Escoge lugar de averia", "Liberia", "Palmira", "Sardinal"}));
-			boxLugarAc.setBounds(109, 161, 166, 26);
-			panelDetalleAveria.add(boxLugarAc);
-			
-			JScrollPane scrollDireccionExactaAc = new JScrollPane();
-			scrollDireccionExactaAc.setBounds(63, 269, 245, 71);
-			panelDetalleAveria.add(scrollDireccionExactaAc);
-			
-			tDireccionExactaAc.setLineWrap(true);
-			tDireccionExactaAc.setWrapStyleWord(true);
-			scrollDireccionExactaAc.setViewportView(tDireccionExactaAc);
-			
-			JLabel lblDireccionExactaAc = new JLabel("NUEVA DIRECCION EXACTA");
-			lblDireccionExactaAc.setBounds(121, 232, 166, 26);
-			panelDetalleAveria.add(lblDireccionExactaAc);
-			
-			JButton btnlistoAc = new JButton("LISTO");
-			btnlistoAc.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					
-				//	arbol.eliminar(Integer.parseInt(tBuscaReporte.getText()));
-					
-			//		p = new Acueducto();
-					
-					
-					if(boxTipoAveriaAc.getSelectedItem().toString().equalsIgnoreCase("residencial")) {
-						
-				//		p.setCliente(tNombreAc.getText(),tCedulaAc.getText(),tNisAc.getText(),tResidenciaAC.getText(), boxTipoAveriaAc.getSelectedItem().toString());
-						
-					}else {
-					/*	p.setLugar(boxLugarAc.getSelectedItem().toString());
-						p.setDireccionExacta( "\n" 
-								
-						+	"***" + tDireccionExactaAc.getText() + "***" );
-					p.setDetalleA(boxTipoAveriaAc.getSelectedItem().toString());
-						//p.setCliente(tNombreAc.getText(),tCedulaAc.getText(),tNisAc.getText(),tResidenciaAC.getText(), boxTipoAveriaAc.getSelectedItem().toString());
-						*/
-					}
-					
-				//	arbol.insertar(p);
-					
-					tNombreAc.setText("");
-					tCedulaAc.setText("");
-					tNisAc.setText("");
-					tResidenciaAC.setText("");
-					boxTipoAveriaAc.setSelectedIndex(0);
-					boxAveriaAc.setSelectedIndex(0);
-					boxLugarAc.setSelectedIndex(0);
-					//tArchivadas.setText(arbol.acumulaDatos());
-					panelDetalleAveria.setVisible(false);
-					
-					
-					
-					
-					
-				}
-			});
-			btnlistoAc.setBounds(238, 333, 89, 23);
-			panelActulizaDatosGenerales.add(btnlistoAc);
-			
-			tBuscaReporte = new JTextField();
-			tBuscaReporte.setBounds(462, 11, 40, 32);
-			menuActualiza.add(tBuscaReporte);
-			tBuscaReporte.setColumns(10);
-			
-			JLabel lblReporte = new JLabel("REPORTE:");
-			lblReporte.setBounds(382, 17, 70, 14);
-			menuActualiza.add(lblReporte);
-			
-			JButton btnNewButton = new JButton("MOSTRAR");
-			btnNewButton.addActionListener(new ActionListener() {
+			JButton btnSiguienteAc = new JButton("Siguiente");
+			btnSiguienteAc.addActionListener(new ActionListener() {
 				
 				
 				public void actionPerformed(ActionEvent e) {
@@ -1942,16 +1797,178 @@ import java.awt.event.MouseAdapter;
 					
 				}
 			});
-			btnNewButton.setBounds(535, 13, 89, 23);
-			menuActualiza.add(btnNewButton);
+			btnSiguienteAc.setBounds(521, 13, 89, 23);
+			menuActualiza.add(btnSiguienteAc);
 			
-			JScrollPane scrollPane_6 = new JScrollPane();
-			scrollPane_6.setBounds(165, 11, 210, 42);
-			menuActualiza.add(scrollPane_6);
+			JScrollPane sPAc = new JScrollPane();
+			sPAc.setBounds(179, 11, 210, 32);
+			menuActualiza.add(sPAc);
+			sPAc.setViewportView(tArchivadasAc);
 			
 			
-			tArchivadas.setEditable(false);
-			scrollPane_6.setViewportView(tArchivadas);
+			tArchivadasAc.setEditable(false);
+			
+			JButton btnAnteriorAc = new JButton("Anterior");
+			btnAnteriorAc.setBounds(422, 13, 89, 23);
+			menuActualiza.add(btnAnteriorAc);
+			
+			JLabel lblGastosDeSupermercado_1 = new JLabel("Gastos de Comida:");
+			lblGastosDeSupermercado_1.setHorizontalAlignment(SwingConstants.CENTER);
+			lblGastosDeSupermercado_1.setForeground(new Color(47, 79, 79));
+			lblGastosDeSupermercado_1.setFont(new Font("Sitka Text", Font.BOLD, 16));
+			lblGastosDeSupermercado_1.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(47, 79, 79)));
+			lblGastosDeSupermercado_1.setBounds(401, 49, 223, 36);
+			menuActualiza.add(lblGastosDeSupermercado_1);
+			
+			JLabel lblGastosDeOcio_1 = new JLabel("Gastos de Ocio:");
+			lblGastosDeOcio_1.setHorizontalAlignment(SwingConstants.CENTER);
+			lblGastosDeOcio_1.setForeground(new Color(47, 79, 79));
+			lblGastosDeOcio_1.setFont(new Font("Sitka Text", Font.BOLD, 16));
+			lblGastosDeOcio_1.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(47, 79, 79)));
+			lblGastosDeOcio_1.setBounds(462, 217, 136, 36);
+			menuActualiza.add(lblGastosDeOcio_1);
+			
+			JLabel lblGastosDeServicios_1 = new JLabel("Gastos de Servicios Basicos:");
+			lblGastosDeServicios_1.setHorizontalAlignment(SwingConstants.CENTER);
+			lblGastosDeServicios_1.setForeground(new Color(47, 79, 79));
+			lblGastosDeServicios_1.setFont(new Font("Sitka Text", Font.BOLD, 16));
+			lblGastosDeServicios_1.setBorder(new MatteBorder(2, 2, 2, 2, (Color) new Color(47, 79, 79)));
+			lblGastosDeServicios_1.setBounds(60, 137, 237, 36);
+			menuActualiza.add(lblGastosDeServicios_1);
+			
+			
+			
+			
+			tSalidasAc.setToolTipText("En relacion a gastos de ocio, ingresa el gasto de salidas");
+			tSalidasAc.setText("Ingrese gasto Salidas");
+			tSalidasAc.setOpaque(false);
+			tSalidasAc.setForeground(SystemColor.controlDkShadow);
+			tSalidasAc.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
+			tSalidasAc.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
+			tSalidasAc.setBounds(403, 314, 221, 21);
+			menuActualiza.add(tSalidasAc);
+			
+			tSuscripcionAc.setToolTipText("En relacion a gastos de ocio, si usas servicios tales como: netflix, spotify...\r\ningresa el monto");
+			tSuscripcionAc.setText("Ingrese gasto Suscripciones");
+			tSuscripcionAc.setOpaque(false);
+			tSuscripcionAc.setForeground(SystemColor.controlDkShadow);
+			tSuscripcionAc.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
+			tSuscripcionAc.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
+			tSuscripcionAc.setBounds(401, 282, 274, 21);
+			menuActualiza.add(tSuscripcionAc);
+			
+			tVerduleriaAc.setToolTipText("ingrese gasto verduleria");
+			tVerduleriaAc.setText("Ingrese gasto Verduleria");
+			tVerduleriaAc.setOpaque(false);
+			tVerduleriaAc.setForeground(SystemColor.controlDkShadow);
+			tVerduleriaAc.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
+			tVerduleriaAc.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
+			tVerduleriaAc.setBounds(403, 180, 221, 21);
+			menuActualiza.add(tVerduleriaAc);
+			
+			tSupermercadoAc.setToolTipText("ingrese gasto supermercado");
+			tSupermercadoAc.setText("Ingrese gasto Supermercado");
+			tSupermercadoAc.setOpaque(false);
+			tSupermercadoAc.setForeground(SystemColor.controlDkShadow);
+			tSupermercadoAc.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
+			tSupermercadoAc.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
+			tSupermercadoAc.setBounds(403, 98, 221, 21);
+			menuActualiza.add(tSupermercadoAc);
+			
+			tCarniceriaAc.setToolTipText("ingrese gasto carniceria");
+			tCarniceriaAc.setText("Ingrese gasto Carniceria");
+			tCarniceriaAc.setOpaque(false);
+			tCarniceriaAc.setForeground(SystemColor.controlDkShadow);
+			tCarniceriaAc.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
+			tCarniceriaAc.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
+			tCarniceriaAc.setBounds(403, 137, 221, 21);
+			menuActualiza.add(tCarniceriaAc);
+			
+			
+			
+			
+			tAguaAc.setToolTipText("ingrese gasto agua");
+			tAguaAc.setText("Ingrese gasto Agua");
+			tAguaAc.setOpaque(false);
+			tAguaAc.setForeground(SystemColor.controlDkShadow);
+			tAguaAc.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
+			tAguaAc.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
+			tAguaAc.setBounds(60, 184, 221, 21);
+			menuActualiza.add(tAguaAc);
+			
+			tTransporteAc.setToolTipText("ingrese gasto transporte");
+			tTransporteAc.setText("Ingrese gasto Transporte");
+			tTransporteAc.setOpaque(false);
+			tTransporteAc.setForeground(SystemColor.controlDkShadow);
+			tTransporteAc.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
+			tTransporteAc.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
+			tTransporteAc.setBounds(60, 322, 221, 21);
+			menuActualiza.add(tTransporteAc);
+			
+			tLuzAc.setToolTipText("ingrese gasto luz");
+			tLuzAc.setText("Ingrese gasto Luz");
+			tLuzAc.setOpaque(false);
+			tLuzAc.setForeground(SystemColor.controlDkShadow);
+			tLuzAc.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
+			tLuzAc.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
+			tLuzAc.setBounds(60, 226, 221, 21);
+			menuActualiza.add(tLuzAc);
+			
+			tCableinternetAc.setToolTipText("ingrese gasto cable-internet");
+			tCableinternetAc.setText("Ingrese gasto Cable-Internet");
+			tCableinternetAc.setOpaque(false);
+			tCableinternetAc.setForeground(SystemColor.controlDkShadow);
+			tCableinternetAc.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
+			tCableinternetAc.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
+			tCableinternetAc.setBounds(60, 271, 221, 21);
+			menuActualiza.add(tCableinternetAc);
+			
+			tIngresoAc.setToolTipText("especifique el ingreso/salario");
+			tIngresoAc.setOpaque(false);
+			tIngresoAc.setForeground(new Color(47, 79, 79));
+			tIngresoAc.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
+			tIngresoAc.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
+			tIngresoAc.setBounds(106, 98, 161, 21);
+			menuActualiza.add(tIngresoAc);
+			
+			JLabel lblResidencia_1 = new JLabel("Ingreso:");
+			lblResidencia_1.setForeground(new Color(47, 79, 79));
+			lblResidencia_1.setFont(new Font("Sitka Text", Font.BOLD, 15));
+			lblResidencia_1.setBounds(28, 94, 122, 29);
+			menuActualiza.add(lblResidencia_1);
+			
+			tNombreAc.setToolTipText("Ingrese el nombre ");
+			tNombreAc.setOpaque(false);
+			tNombreAc.setForeground(new Color(47, 79, 79));
+			tNombreAc.setFont(new Font("Sitka Text", Font.BOLD | Font.ITALIC, 15));
+			tNombreAc.setBorder(new MatteBorder(0, 0, 3, 0, (Color) new Color(47, 79, 79)));
+			tNombreAc.setBounds(106, 58, 161, 21);
+			menuActualiza.add(tNombreAc);
+			
+			JButton listoAc = new JButton("Listo!");
+			listoAc.setToolTipText("finalizar de agregar los datos");
+			listoAc.setFont(new Font("Dialog", Font.BOLD, 13));
+			listoAc.setBounds(415, 379, 122, 29);
+			menuActualiza.add(listoAc);
+			
+			JButton btnBorraD_1 = new JButton("Borrar Datos");
+			btnBorraD_1.setToolTipText("refresca el menu");
+			btnBorraD_1.setFont(new Font("Dialog", Font.BOLD, 13));
+			btnBorraD_1.setBounds(547, 379, 129, 29);
+			menuActualiza.add(btnBorraD_1);
+			
+			JLabel lblNombre_1 = new JLabel("Nombre:");
+			lblNombre_1.setForeground(new Color(47, 79, 79));
+			lblNombre_1.setFont(new Font("Sitka Text", Font.BOLD, 15));
+			lblNombre_1.setBounds(28, 60, 81, 16);
+			menuActualiza.add(lblNombre_1);
+			
+			JButton btnHomeShorCut_3 = new JButton("");
+			btnHomeShorCut_3.setToolTipText("Regresar a menu prinicipal");
+			btnHomeShorCut_3.setOpaque(false);
+			btnHomeShorCut_3.setContentAreaFilled(false);
+			btnHomeShorCut_3.setBounds(314, 379, 61, 53);
+			menuActualiza.add(btnHomeShorCut_3);
 			
 			
 			
