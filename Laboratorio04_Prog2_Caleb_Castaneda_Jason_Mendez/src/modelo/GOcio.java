@@ -26,7 +26,7 @@ public class GOcio extends Gasto{
 		
 		int total=0;
 		
-		total=(getSalidas()+getSalidas());
+		total=(getSalidas()+getStreaming());
 		return total;
 	}
 	@Override
