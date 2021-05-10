@@ -112,7 +112,8 @@ public class Vivienda {
 			   +sb.mostrar()
 			   +comida.mostrar()
 			   +ocio.mostrar()
-			   +"Total de gastos: ¢"+getGastoTotal()+"\n"+
+			   +"Total de gastos: ¢"+getGastoTotal()+"\n"
+			   +diferencia()+"\n"+
 			   "----------------------------------\n\n";
 				
 		return mensaje;
