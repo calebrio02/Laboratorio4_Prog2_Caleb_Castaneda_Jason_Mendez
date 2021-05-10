@@ -43,11 +43,9 @@ public class Vivienda {
 		this.p = p;
 	}
 	
-	public void ingresaP (String nombre, String id, String tel, int ingreso) {
+	public void ingresaP (String nombre, int ingreso) {
 		
 		p.setNombre(nombre);
-		p.setId(id);
-		p.setNumTel(tel);
 		p.setIngreso(ingreso);
 	}
 	
@@ -81,9 +79,34 @@ public class Vivienda {
 		setGastoTotal(total);
 		
 	}
+	
+	public String diferencia() {
+		
+		String mensaje="";
+		
+		if (p.getIngreso()-getGastoTotal()>0) {
+			
+			mensaje="Este mes te sobró: ¢"+(p.getIngreso()-getGastoTotal());
+			
+		}else {
+			mensaje="Este mes no hubo ahorros";
+		}
+		
+		return mensaje;
+	}
 	public String mostrar() {
 		
-		return null;
+		calculaTotal();
+		String mensaje="";
+		mensaje="Control de gastos /n/n"
+			   +p.muestraPersona()
+			   +sb.mostrar()
+			   +comida.mostrar()
+			   +ocio.mostrar()
+			   +"Total de gastos: ¢"+getGastoTotal()+"/n"+
+			   "----------------------------------/n/n";
+				
+		return mensaje;
 	}
 	
 	

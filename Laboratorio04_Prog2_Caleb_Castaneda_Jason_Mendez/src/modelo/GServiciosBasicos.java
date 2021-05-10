@@ -56,7 +56,7 @@ public class GServiciosBasicos extends Gasto{
 		
 		String mensaje="";
 		
-		mensaje+="Gastos servicios básicos "
+		mensaje+="Gastos servicios básicos /n"
 				+"Electricidad: ¢"+getLuz()+"/n"
 				+"Agua: ¢"+getAgua()+"/n"
 				+"Cable e internet ¢"+getCableInternet()+"/n"
