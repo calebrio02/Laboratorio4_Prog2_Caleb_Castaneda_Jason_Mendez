@@ -2048,14 +2048,14 @@ import java.awt.event.MouseAdapter;
 								v.sb.setAgua(0);
 								
 							}else {
-								agua = Integer.parseInt(tAgua.getText());
+								agua = Integer.parseInt(tAguaAc.getText());
 							}
 							if(tLuzAc.getText().equalsIgnoreCase("ingrese gasto luz")||tLuzAc.getText().equalsIgnoreCase("")){
 								v.sb.setLuz(0);
 							
 							}else {
 								
-								 luz = Integer.parseInt(tLuz.getText());
+								 luz = Integer.parseInt(tLuzAc.getText());
 							}
 							
 								if(tCableinternetAc.getText().equalsIgnoreCase("ingrese gasto cable-internet")||tCableinternetAc.getText().equalsIgnoreCase("")){
@@ -2063,47 +2063,47 @@ import java.awt.event.MouseAdapter;
 								v.sb.setCableInternet(0);
 								
 							}else {
-								cInternet = Integer.parseInt(tCableinternet.getText());
+								cInternet = Integer.parseInt(tCableinternetAc.getText());
 							}
 								if(tTransporteAc.getText().equalsIgnoreCase("ingrese gasto transporte")||tTransporteAc.getText().equalsIgnoreCase("")) {
 								
 								v.sb.setTransporte(0);
 								
 							}else {
-								transporte = Integer.parseInt(tTransporte.getText());
+								transporte = Integer.parseInt(tTransporteAc.getText());
 							}
 								
 								
 								if(tSupermercadoAc.getText().equalsIgnoreCase("ingrese gasto supermercado")||tSupermercadoAc.getText().equalsIgnoreCase("")) {
 								v.comida.setSupermercado(0);
 							}else {
-								supermercado = Integer.parseInt(tSupermercado.getText());
+								supermercado = Integer.parseInt(tSupermercadoAc.getText());
 							}
 								
 								if (tCarniceriaAc.getText().equalsIgnoreCase("ingrese gasto carniceria")||tCarniceriaAc.getText().equalsIgnoreCase("")) {
 								v.comida.setCarniceria(0);
 								
 							}else {
-								carniceria = Integer.parseInt(tCarniceria.getText());
+								carniceria = Integer.parseInt(tCarniceriaAc.getText());
 							}
 								if(tVerduleriaAc.getText().equalsIgnoreCase("ingrese gasto verduleria")||tVerduleriaAc.getText().equalsIgnoreCase("")) {
 								v.comida.setVerduleria(0);
 								
 							}else {
-								verduleria = Integer.parseInt(tVerduleria.getText());
+								verduleria = Integer.parseInt(tVerduleriaAc.getText());
 							}
 								if(tSuscripcionAc.getText().equalsIgnoreCase("ingrese gasto suscripciones")||tSuscripcionAc.getText().equalsIgnoreCase("")) {
 								v.ocio.setStreaming(0);
 								
 							}else {
-								suscripcion = Integer.parseInt(tSuscripcion.getText());
+								suscripcion = Integer.parseInt(tSuscripcionAc.getText());
 							}
 								if(tSalidasAc.getText().equalsIgnoreCase("ingrese gasto salidas")||tSalidasAc.getText().equalsIgnoreCase("")) {
 								
 								v.ocio.setSalidas(0);
 							
 							}else {
-								salidas = Integer.parseInt(tSalidas.getText());
+								salidas = Integer.parseInt(tSalidasAc.getText());
 							}
 							
 								
