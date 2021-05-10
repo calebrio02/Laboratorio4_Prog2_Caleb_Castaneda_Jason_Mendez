@@ -265,7 +265,7 @@ import java.awt.event.MouseAdapter;
 				public void actionPerformed(ActionEvent e) {
 					CardLayout c = (CardLayout)(contentPane.getLayout());
 					c.show(contentPane, "t3");
-					//tDatosBuscar.setText(arbol.acumulaDatos());
+					tDatosBuscar.setText(lista.acumulaDatos());
 					
 				}
 			});
@@ -319,7 +319,7 @@ import java.awt.event.MouseAdapter;
 				public void actionPerformed(ActionEvent e) {
 					CardLayout c = (CardLayout)(contentPane.getLayout());
 					c.show(contentPane, "t4");
-					//tInfoEliminar.setText(arbol.acumulaDatos());
+					tInfoEliminar.setText(lista.acumulaDatos());
 					
 				}
 			});
@@ -1351,57 +1351,80 @@ import java.awt.event.MouseAdapter;
 						
 							indiceModificar=+1;
 							
+							
+							int agua=0;
+							int luz=0;
+							int cInternet=0;
+							int transporte=0;
+							int supermercado=0;
+							int carniceria=0;
+							int verduleria=0;
+							int suscripcion=0;
+							int salidas=0;
 						
 							if(tAgua.getText().equalsIgnoreCase("ingrese gasto Agua")||tAgua.getText().equalsIgnoreCase("")) {
 								
 								v.sb.setAgua(0);
 								
-							}else if(tLuz.getText().equalsIgnoreCase("ingrese gasto luz")||tLuz.getText().equalsIgnoreCase("")){
+							}else {
+								agua = Integer.parseInt(tAgua.getText());
+							}
+							if(tLuz.getText().equalsIgnoreCase("ingrese gasto luz")||tLuz.getText().equalsIgnoreCase("")){
 								v.sb.setLuz(0);
 							
-							}else if(tCableinternet.getText().equalsIgnoreCase("ingrese gasto cable-internet")||tCableinternet.getText().equalsIgnoreCase("")){
+							}else {
+								
+								 luz = Integer.parseInt(tLuz.getText());
+							}
+							
+								if(tCableinternet.getText().equalsIgnoreCase("ingrese gasto cable-internet")||tCableinternet.getText().equalsIgnoreCase("")){
 								
 								v.sb.setCableInternet(0);
 								
-							}else if(tTransporte.getText().equalsIgnoreCase("ingrese gasto transporte")||tTransporte.getText().equalsIgnoreCase("")) {
+							}else {
+								cInternet = Integer.parseInt(tCableinternet.getText());
+							}
+								if(tTransporte.getText().equalsIgnoreCase("ingrese gasto transporte")||tTransporte.getText().equalsIgnoreCase("")) {
 								
 								v.sb.setTransporte(0);
 								
-							}else if(tSupermercado.getText().equalsIgnoreCase("ingrese gasto supermercado")||tSupermercado.getText().equalsIgnoreCase("")) {
+							}else {
+								transporte = Integer.parseInt(tTransporte.getText());
+							}
+								
+								
+								if(tSupermercado.getText().equalsIgnoreCase("ingrese gasto supermercado")||tSupermercado.getText().equalsIgnoreCase("")) {
 								v.comida.setSupermercado(0);
-							}else if (tCarniceria.getText().equalsIgnoreCase("ingrese gasto carniceria")||tCarniceria.getText().equalsIgnoreCase("")) {
+							}else {
+								supermercado = Integer.parseInt(tSupermercado.getText());
+							}
+								
+								if (tCarniceria.getText().equalsIgnoreCase("ingrese gasto carniceria")||tCarniceria.getText().equalsIgnoreCase("")) {
 								v.comida.setCarniceria(0);
 								
-							}else if(tVerduleria.getText().equalsIgnoreCase("ingrese gasto verduleria")||tVerduleria.getText().equalsIgnoreCase("")) {
+							}else {
+								carniceria = Integer.parseInt(tCarniceria.getText());
+							}
+								if(tVerduleria.getText().equalsIgnoreCase("ingrese gasto verduleria")||tVerduleria.getText().equalsIgnoreCase("")) {
 								v.comida.setVerduleria(0);
 								
-							}else if(tSuscripcion.getText().equalsIgnoreCase("ingrese gasto carniceria")||tSuscripcion.getText().equalsIgnoreCase("")) {
+							}else {
+								verduleria = Integer.parseInt(tVerduleria.getText());
+							}
+								if(tSuscripcion.getText().equalsIgnoreCase("ingrese gasto suscripciones")||tSuscripcion.getText().equalsIgnoreCase("")) {
 								v.ocio.setStreaming(0);
 								
-							}else if(tSalidas.getText().equalsIgnoreCase("ingrese gasto salidas")||tSalidas.getText().equalsIgnoreCase("")) {
+							}else {
+								suscripcion = Integer.parseInt(tSuscripcion.getText());
+							}
+								if(tSalidas.getText().equalsIgnoreCase("ingrese gasto salidas")||tSalidas.getText().equalsIgnoreCase("")) {
 								
 								v.ocio.setSalidas(0);
 							
 							}else {
+								salidas = Integer.parseInt(tSalidas.getText());
+							}
 							
-							
-							
-								/////////////////////GASTOS SERVICIOS BASICOS///////////////////////////
-							
-							int agua = Integer.parseInt(tAgua.getText());
-							int luz = Integer.parseInt(tLuz.getText());
-							int cInternet = Integer.parseInt(tCableinternet.getText());
-							int transporte = Integer.parseInt(tTransporte.getText());
-							
-							/////////////////////GASTOS COMIDA/////////////////////////////////////
-							int supermercado = Integer.parseInt(tSupermercado.getText());
-							int carniceria = Integer.parseInt(tCarniceria.getText());
-							int verduleria = Integer.parseInt(tVerduleria.getText());	
-							/////////////////////GASTOS OCIO///////////////////////////////////////
-							int suscripcion = Integer.parseInt(tSuscripcion.getText());
-							int salidas = Integer.parseInt(tSalidas.getText());
-							
-						
 								
 							v.ingresaP(tNombre.getText(),Integer.parseInt(tIngreso.getText()));
 							v.ingresaSB(agua, luz, cInternet, transporte);
@@ -1418,7 +1441,7 @@ import java.awt.event.MouseAdapter;
 							
 							lista.mensajeTemporizado("Datos agregados!", 1200);
 							
-							}
+							
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 							
 							tNombre.setText("");
@@ -1576,13 +1599,13 @@ import java.awt.event.MouseAdapter;
 				public void actionPerformed(ActionEvent e) {
 					
 					if(Integer.parseInt(tDigito.getText())<0) {
-					//	lista.mensajeTemporizado("Ingresa numero de paciente", 1000);
+						lista.mensajeTemporizado("Ingresa numero de reporte", 1000);
 						
 						
 					}else {
 						
 						
-					//	arbol.buscar(Integer.parseInt(tDigito.getText()));
+						lista.consultar(Integer.parseInt(tDigito.getText()));
 						tDigito.setText("");
 					}
 				
@@ -1664,9 +1687,9 @@ import java.awt.event.MouseAdapter;
 				
 				public void actionPerformed(ActionEvent arg0) {
 					
-					//	arbol.eliminar(Integer.parseInt(tDigitoEliminar.getText()));
+						lista.suprimir(Integer.parseInt(tDigitoEliminar.getText()));
 						tInfoEliminar.setText("");
-					//	tInfoEliminar.setText(arbol.acumulaDatos());
+						tInfoEliminar.setText(lista.acumulaDatos());
 						
 						
 				}
