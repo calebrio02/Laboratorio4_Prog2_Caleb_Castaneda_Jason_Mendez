@@ -61,6 +61,9 @@ import java.awt.Component;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.SoftBevelBorder;
+
+import controlador.Lista;
+
 import java.awt.event.MouseAdapter;
 	
 	public class Menu extends JFrame {
@@ -74,7 +77,9 @@ import java.awt.event.MouseAdapter;
 		String lugarResidencia;
 		int indiceModificar=1;
 		
-		//Lista lista = new Lista();
+		Lista lista = new Lista();
+		Vivienda v = new Vivienda();
+		
 		
 		private JPanel bienvenida;
 		
@@ -334,8 +339,8 @@ import java.awt.event.MouseAdapter;
 				public void actionPerformed(ActionEvent e) {
 					CardLayout c = (CardLayout)(contentPane.getLayout());
 					c.show(contentPane, "t2");
+					datos.setText(lista.mostrar());
 					
-					datos.setText("");
 					
 					
 				}
@@ -1331,50 +1336,110 @@ import java.awt.event.MouseAdapter;
 			listo.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					if(tNombre.getText().isEmpty()) {
-					//	lista.mensajeTemporizado("Agregue su nombre", 1000);
+						lista.mensajeTemporizado("Agregue su nombre", 1000);
 						
 					
 					
 						 
 					}else {
 							
-					//	p = new Acueducto();
 						
-							//indiceModificar=+1;
+						
+						
+						
+					v = new Vivienda();
+						
+							indiceModificar=+1;
+							
+						
+							if(tAgua.getText().equalsIgnoreCase("ingrese gasto Agua")||tAgua.getText().equalsIgnoreCase("")) {
+								
+								v.sb.setAgua(0);
+								
+							}else if(tLuz.getText().equalsIgnoreCase("ingrese gasto luz")||tLuz.getText().equalsIgnoreCase("")){
+								v.sb.setLuz(0);
+							
+							}else if(tCableinternet.getText().equalsIgnoreCase("ingrese gasto cable-internet")||tCableinternet.getText().equalsIgnoreCase("")){
+								
+								v.sb.setCableInternet(0);
+								
+							}else if(tTransporte.getText().equalsIgnoreCase("ingrese gasto transporte")||tTransporte.getText().equalsIgnoreCase("")) {
+								
+								v.sb.setTransporte(0);
+								
+							}else if(tSupermercado.getText().equalsIgnoreCase("ingrese gasto supermercado")||tSupermercado.getText().equalsIgnoreCase("")) {
+								v.comida.setSupermercado(0);
+							}else if (tCarniceria.getText().equalsIgnoreCase("ingrese gasto carniceria")||tCarniceria.getText().equalsIgnoreCase("")) {
+								v.comida.setCarniceria(0);
+								
+							}else if(tVerduleria.getText().equalsIgnoreCase("ingrese gasto verduleria")||tVerduleria.getText().equalsIgnoreCase("")) {
+								v.comida.setVerduleria(0);
+								
+							}else if(tSuscripcion.getText().equalsIgnoreCase("ingrese gasto carniceria")||tSuscripcion.getText().equalsIgnoreCase("")) {
+								v.ocio.setStreaming(0);
+								
+							}else if(tSalidas.getText().equalsIgnoreCase("ingrese gasto salidas")||tSalidas.getText().equalsIgnoreCase("")) {
+								
+								v.ocio.setSalidas(0);
+							
+							}else {
+							
+							
+							
+								/////////////////////GASTOS SERVICIOS BASICOS///////////////////////////
+							
+							int agua = Integer.parseInt(tAgua.getText());
+							int luz = Integer.parseInt(tLuz.getText());
+							int cInternet = Integer.parseInt(tCableinternet.getText());
+							int transporte = Integer.parseInt(tTransporte.getText());
+							
+							/////////////////////GASTOS COMIDA/////////////////////////////////////
+							int supermercado = Integer.parseInt(tSupermercado.getText());
+							int carniceria = Integer.parseInt(tCarniceria.getText());
+							int verduleria = Integer.parseInt(tVerduleria.getText());	
+							/////////////////////GASTOS OCIO///////////////////////////////////////
+							int suscripcion = Integer.parseInt(tSuscripcion.getText());
+							int salidas = Integer.parseInt(tSalidas.getText());
+							
 						
 								
+							v.ingresaP(tNombre.getText(),Integer.parseInt(tIngreso.getText()));
+							v.ingresaSB(agua, luz, cInternet, transporte);
+							v.ingresaC(supermercado, carniceria, verduleria);
+							v.ingresaO(suscripcion, salidas);
 							
-								/*p.setLugar(boxLugar.getSelectedItem().toString());
-								//p.setDireccionExacta( "\n" 
-										
-								//+	"***" + tDireccionExacta.getText() + "***" );
-								//p.setDetalleA(boxAveriaEspecifica.getSelectedItem().toString());
-								//p.setCliente(tNombre.getText(),tCed.getText(),tNis.getText(),tResi.getText(), boxTipoAveria.getSelectedItem().toString());
-								*/
+							
+						
+							
+							v.setIndiceGuia(indiceModificar);
+							
+							
+							lista.insertar(v);
+							
+							lista.mensajeTemporizado("Datos agregados!", 1200);
+							
 							}
-						
-							
-						//	p.setIndice(indiceModificar);
-							
-							
-						//	arbol.insertar(p);
-							
-						//	arbol.mensajeTemporizado("Datos agregados!", 1200);
-							
-							
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-								tNombre.setText("");
-								
-								tIngreso.setText("");
-								
-								//tDireccionExacta.setText("");
-							//	boxTipoAveria.setSelectedIndex(0);
-								//boxLugar.setSelectedIndex(0);
-								//.setSelectedIndex(0);
+							
+							tNombre.setText("");
+							tIngreso.setText("");
+							
+							tAgua.setText("Ingrese gasto Agua");
+							tLuz.setText("Ingrese gasto Luz");
+							tCableinternet.setText("Ingrese gasto Cable-Internet");
+							tTransporte.setText("Ingrese gasto Transporte");
+
+							tSupermercado.setText("Ingrese gasto Supermercado");
+							tCarniceria.setText("Ingrese gasto Carniceria");
+							tVerduleria.setText("Ingrese gasto Verduleria");
+							
+							tSuscripcion.setText("Ingrese gasto Suscripciones");
+							tSalidas.setText("Ingrese gasto Salidas");
 								
 								
 								
 						}
+				}
 						
 			});
 			
@@ -1812,6 +1877,8 @@ import java.awt.event.MouseAdapter;
 				public void actionPerformed(ActionEvent e) {
 					
 				//	p = arbol.buscarActualizar(Integer.parseInt(tBuscaReporte.getText()));
+					
+					
 					
 				/*	
 					tNombreAc.setText(p.c.getNombre());

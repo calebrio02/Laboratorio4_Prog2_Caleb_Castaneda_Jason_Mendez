@@ -2,6 +2,22 @@ package modelo;
 
 public class Vivienda {
 	
+
+
+	Persona p = new Persona();
+	GComida comida = new GComida();
+	GOcio ocio = new GOcio();
+	GServiciosBasicos sb = new GServiciosBasicos();
+	int indiceGuia;
+	
+	
+	
+	public int getIndiceGuia() {
+		return indiceGuia;
+	}
+	public void setIndiceGuia(int indiceGuia) {
+		this.indiceGuia = indiceGuia;
+	}
 	public int gastoTotal=0;
 	
 	public int getGastoTotal() {
@@ -28,13 +44,6 @@ public class Vivienda {
 	public void setSb(GServiciosBasicos sb) {
 		this.sb = sb;
 	}
-
-
-	Persona p = new Persona();
-	GComida comida = new GComida();
-	GOcio ocio = new GOcio();
-	GServiciosBasicos sb = new GServiciosBasicos();
-	
 	
 	public Persona getP() {
 		return p;

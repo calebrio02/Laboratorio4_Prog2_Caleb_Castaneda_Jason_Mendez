@@ -148,31 +148,24 @@ public class Lista {
 			
 			
 			
-			public void mostrar() {//metodo para mostrar todos los datos que haya hasta ese momento
+			public String mostrar() {//metodo para mostrar todos los datos que haya hasta ese momento
+				
 				String mensaje="";
 				if(l.isEmpty()) {
 					mensajeTemporizado("Lista Vacia", 800);//si esta vacia se hace uso del metodo correspondiente y se devuelve este mensaje
 				}else {
 					//Datos para ver los datos de forma dinamica
 					
-					String texto="";
+					//String texto="";
 					for (int i = 0; i < l.size(); i++) {
 						mensaje+=l.get(i).mostrar()+ "\n\n";
 						
 					}
-					texto+= mensaje;
-					JTextArea jtxt_area = new JTextArea();
-					JScrollPane scroll;
-					jtxt_area.setText(texto);
-					jtxt_area.setEditable(false);
-					jtxt_area.setForeground(Color.white);
-					jtxt_area.setBackground(Color.darkGray);
-					scroll = new JScrollPane(jtxt_area);
-					scroll.setPreferredSize( new Dimension( 500, 500 ) );
-					JOptionPane.showMessageDialog(null, scroll,"Cantidad de Datos " + "("+size+")", JOptionPane.INFORMATION_MESSAGE);
+					//texto+= mensaje;
+					
 					//De lo contrario se devuelve el mensaje con lo que contenga
 				}
-
+				return mensaje;
 			}
 			
 			public boolean elementosLista() {// PARA VER SI HAY ELEMENTOS EN LISTA 
