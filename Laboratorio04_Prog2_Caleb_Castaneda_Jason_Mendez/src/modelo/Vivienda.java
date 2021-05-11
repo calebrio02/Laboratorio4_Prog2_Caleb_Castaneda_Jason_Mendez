@@ -1,17 +1,15 @@
 package modelo;
 
-public class Vivienda {
+public class Vivienda {//clase final donde se integran todos los elementos necesarios para el funcionamiento del programa
 	
-
-
-	Persona p = new Persona();
-	GComida comida = new GComida();
-	GOcio ocio = new GOcio();
-	GServiciosBasicos sb = new GServiciosBasicos();
-	int indiceGuia;
+	Persona p = new Persona();//agregacion de la clase persona
+	GComida comida = new GComida();//agregacion del gasto de comida
+	GOcio ocio = new GOcio();//agregacion del gasto en ocio
+	GServiciosBasicos sb = new GServiciosBasicos();//agregacion del gasto de servcios basicos 
+	int indiceGuia;//utilizado para asignar un numero a los registros que se llevan
 	
 	
-	
+	///////////////sets y gets//////////////////
 	public int getIndiceGuia() {
 		return indiceGuia;
 	}
@@ -52,13 +50,13 @@ public class Vivienda {
 		this.p = p;
 	}
 	
-	public void ingresaP (String nombre, int ingreso) {
+	public void ingresaP (String nombre, int ingreso) {//metodo de ingresa persona para utilizar en la gui
 		
 		p.setNombre(nombre);
 		p.setIngreso(ingreso);
 	}
 	
-	public void ingresaC (int superm, int carne, int verdu) {
+	public void ingresaC (int superm, int carne, int verdu) {//metodo de ingresa comida para utilizar en la gui
 
 		comida.setSupermercado(superm);
 		comida.setCarniceria(carne);
@@ -66,13 +64,13 @@ public class Vivienda {
 		
 	}
 	
-	public void ingresaO(int stream, int salidas) {
+	public void ingresaO(int stream, int salidas) {//metodo de ingresa ocio para utilizar en la gui
 		ocio.setSalidas(salidas);
 		ocio.setStreaming(stream);
 		
 	}
 	
-	public void ingresaSB (int agua, int luz, int ci, int trans) {
+	public void ingresaSB (int agua, int luz, int ci, int trans) {//metodo de ingresa servicios basicos para utilizar en la gui
 		
 		sb.setAgua(agua);
 		sb.setLuz(luz);
@@ -81,7 +79,7 @@ public class Vivienda {
 		
 		}
 	
-	public void calculaTotal() {
+	public void calculaTotal() {//metodo para sumar el total de gastos
 		int total=0;
 		
 		total=(comida.calculoGasto()+ocio.calculoGasto()+sb.calculoGasto());
@@ -89,7 +87,7 @@ public class Vivienda {
 		
 	}
 	
-	public String diferencia() {
+	public String diferencia() {//metodo para saber si sobro dinero en el mes en base al gasto y al ingreso
 		
 		String mensaje="";
 		
@@ -103,7 +101,7 @@ public class Vivienda {
 		
 		return mensaje;
 	}
-	public String mostrar() {
+	public String mostrar() {//metodo para mostrar todo los datos registrados
 		
 		calculaTotal();
 		String mensaje="";
@@ -121,4 +119,4 @@ public class Vivienda {
 	
 	
 
-}
+}//fin de esta clase

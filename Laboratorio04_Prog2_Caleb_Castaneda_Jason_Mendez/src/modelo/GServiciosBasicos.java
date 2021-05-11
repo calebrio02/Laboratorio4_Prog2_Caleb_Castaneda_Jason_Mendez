@@ -2,14 +2,15 @@ package modelo;
 
 public class GServiciosBasicos extends Gasto{
 
-	private int agua =0;
+	private int agua =0;//gatos en agua
 	
-	private int luz =0;
+	private int luz =0;//gastos en electricidad
 	
-	private int cableInternet=0;
+	private int cableInternet=0;//gastos en television e internet
 	
-	private int transporte=0;
+	private int transporte=0;//gastos en transporte, gasolina
 
+	///////////////sets y gets///////////////
 	public int getAgua() {
 		return agua;
 	}
@@ -41,8 +42,10 @@ public class GServiciosBasicos extends Gasto{
 	public void setTransporte(int transporte) {
 		this.transporte = transporte;
 	}
+	
+	
 	@Override
-	public int calculoGasto() {
+	public int calculoGasto() {//Metodo abstracto de la clase gasto
 		
 		int total=0;
 		
@@ -51,7 +54,7 @@ public class GServiciosBasicos extends Gasto{
 		return total;
 	}
 	@Override
-	public String mostrar() {
+	public String mostrar() {//Metodo abstracto de la clase gasto
 		// TODO Auto-generated method stub
 		
 		String mensaje="";
@@ -66,9 +69,7 @@ public class GServiciosBasicos extends Gasto{
 	}
 
 
-	public void ingresar(int agua,int luz, int internet, int transporte) {
-		
-	
+	public void ingresar(int agua,int luz, int internet, int transporte) {//metodo para ingresar desde la interfaz
 		
 		setAgua(agua);
 		setLuz(luz);
@@ -78,4 +79,4 @@ public class GServiciosBasicos extends Gasto{
 
 
 	
-}
+}//fin de esta clase

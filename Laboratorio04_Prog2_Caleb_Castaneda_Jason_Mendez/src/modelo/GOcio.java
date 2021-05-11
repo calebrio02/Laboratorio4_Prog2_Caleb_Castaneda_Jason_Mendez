@@ -1,11 +1,13 @@
 package modelo;
 
-public class GOcio extends Gasto{
+public class GOcio extends Gasto{//Hereda de la clase abstracta gasto
 	
 	private int streaming=0; //Gastos en servicios online
 	
 	private int salidas=0; //Salidas a restaurantes, cine, etc
 
+	
+	/////////////////////sets y gets/////////////////
 	public int getStreaming() {
 		return streaming;
 	}
@@ -21,8 +23,10 @@ public class GOcio extends Gasto{
 	public void setSalidas(int salidas) {
 		this.salidas = salidas;
 	}
+	
+	
 	@Override
-	public int calculoGasto(){
+	public int calculoGasto(){//Metodo abstracto de la clase Gasto
 		
 		int total=0;
 		
@@ -30,7 +34,7 @@ public class GOcio extends Gasto{
 		return total;
 	}
 	@Override
-	public String mostrar() {
+	public String mostrar() {//Metodo abstracto de la clase gasto
 		// TODO Auto-generated method stub
 		
 		String mensaje="";
@@ -44,11 +48,11 @@ public class GOcio extends Gasto{
 	}
 
 
-	public void ingresar(int streaming, int salidas) {
+	public void ingresar(int streaming, int salidas) {//metodo para ingresar los datos desde la interfaz
 
 			setStreaming(streaming);
 			setSalidas(salidas);
 	}
 	
 
-}
+}//fin de esta clase

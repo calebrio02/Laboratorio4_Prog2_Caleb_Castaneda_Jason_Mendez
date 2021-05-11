@@ -1,19 +1,19 @@
 package modelo;
 
-public class GComida  extends Gasto{
+public class GComida  extends Gasto{//hereda de la clase abstracta Gasto
 	
-	private int supermercado=0;
+	private int supermercado=0;//Gastos de supermercado
 	
-	private int carniceria=0;
+	private int carniceria=0;//Gastos de Carniceria
 	
-	private int verduleria=0;
+	private int verduleria=0;//Gastos de verduras
 	
 	
 
-	public GComida() {
+	public GComida() {//Constructor de esta clase
 	
 	}
-
+//////////////////// sets y gets//////////////////////
 	public int getSupermercado() {
 		return supermercado;
 	}
@@ -39,7 +39,7 @@ public class GComida  extends Gasto{
 	}
 	
 	@Override
-	public int calculoGasto() {
+	public int calculoGasto() {//Metodo abstracto de la clase gasto
 		
 		int total=0;
 		
@@ -48,7 +48,7 @@ public class GComida  extends Gasto{
 	}
 	
 	@Override
-	public String mostrar() {
+	public String mostrar() {//Metodo abstracto de la clase gasto
 		
 		String mensaje ="";
 		
@@ -62,7 +62,7 @@ public class GComida  extends Gasto{
 	}
 
 
-	public void ingresar(int supermercado, int carne, int verdu) {
+	public void ingresar(int supermercado, int carne, int verdu) {//Metodo para ingresar los datos de esta clase en la interfaz
 
 		setSupermercado(supermercado);
 		setCarniceria(carne);
@@ -72,4 +72,4 @@ public class GComida  extends Gasto{
 	
 	
 
-}
+}//fin de la clase

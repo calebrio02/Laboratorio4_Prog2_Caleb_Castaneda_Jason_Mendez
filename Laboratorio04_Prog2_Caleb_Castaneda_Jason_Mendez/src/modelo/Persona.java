@@ -1,12 +1,12 @@
 package modelo;
 
-public class Persona {
+public class Persona {//clase de los datos basicos de persona
 	
-	private String nombre;
+	private String nombre;//nombre de la persona
 	
-	private int ingreso=0;
+	private int ingreso=0;//cantida de ingreso de la persona
 
-	
+	///////////////////////sets y gets////////////////
 	public int getIngreso() {
 		return ingreso;
 	}
@@ -23,17 +23,14 @@ public class Persona {
 		this.nombre = nombre;
 	}
 
-	public String muestraPersona() {
+	public String muestraPersona() {//muestra de esta clase
 		String mensaje;
 		mensaje = "Nombre: " + getNombre() + "\n"
 			    + "Ingreso: ¢ " + getIngreso() + "\n\n";
 				
-		
-		
-		
 		return mensaje;
 	}
 	
 	
 
-}
+}//fin de esta clase

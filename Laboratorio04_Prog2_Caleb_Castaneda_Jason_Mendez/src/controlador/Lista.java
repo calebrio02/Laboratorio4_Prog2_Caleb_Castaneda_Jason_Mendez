@@ -24,53 +24,36 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class Lista {
 
 	
+	int size=0;
+	int numPaciente=0; 
 	LinkedList<Vivienda> l = new LinkedList<Vivienda>();
 		
-		public String mostrar(int i) {
+		
+public String mostrar(int i) {
 			
-			String info= "";
+	String info= "";
 			
-			for (int j = 0; j < l.size(); j++) {
-				
-				info += l.get(j).mostrar() + "\n\n";
+	for (int j = 0; j < l.size(); j++) {
+		info += l.get(j).mostrar() + "\n\n";
+		
 			}
-			
-			
 			
 			return info;
 		}
-		
-		
-		
-		///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		
 
 		
-
-			
-			
-			JTextArea jtxt_area;//se usa para el muestra
-			FileNameExtensionFilter filtro;//el filtro de extension de archivos 
-			String ruta = "";//para conseguir la ruta del archivo
-			JScrollPane scroll;//para el metodo muestra que sea posible ahcer scroll
-			
-			int size=0;
-			int numPaciente=0; //servirÃ¡ para eliminar pacientes de la lista.
-
-			
-			
-			public void insertar(Vivienda v) {//METODO PARA AGREGAR A LOS PACIENTES
-				l.add(v);
-				size++;
+public void insertar(Vivienda v) {//METODO PARA AGREGAR A LOS PACIENTES
+		l.add(v);
+		size++;
+		
 			}
 			
 			
 			
-			public void consultar(int d) {//metodo para buscar un cliente en especifico
+public void consultar(int d) {//metodo para buscar un cliente en especifico
 				//la variable "d" se utiliza para recibir el dato del JTxtField
 				//boolean encontrado= false;
 				
-					
 					try {
 						if(l.isEmpty()) {///Si esta vacia se despliega el memnsaje
 							mensajeTemporizado("Lista Vacia", 800);
@@ -85,11 +68,10 @@ public class Lista {
 					
 			}
 			
-			public Vivienda buscar(int d) {//metodo para buscar un cliente en especifico
+public Vivienda buscar(int d) {//metodo para buscar un cliente en especifico
 				//la variable "d" se utiliza para recibir el dato del JTxtField
 				
-				
-				Vivienda v = new Vivienda();
+		Vivienda v = new Vivienda();
 					
 					try {
 						if(l.isEmpty()) {///Si esta vacia se despliega el memnsaje
@@ -105,26 +87,22 @@ public class Lista {
 							
 						}
 					
-					
-					
 					return v;
 					
 			}
+
 			
-			public void actualizar(int indice, Vivienda v) {//metodo para buscar un cliente en especifico
-				//la variable "d" se utiliza para recibir el dato del JTxtField
-				
-				l.set((indice-1), v);
+public void actualizar(int indice, Vivienda v) {//metodo para buscar un cliente en especifico
+			//la variable "v" se utiliza para recibir el dato del JTxtField
+
+			l.set((indice-1), v);
 				
 			}
 			
 				
 			
 			
-						
-			
-			
-			public void suprimir(int d) {//funciona igual que el mostrar, con la diferencia que el dato se elimina y se le hace saber al user de lo acontecido 
+public void suprimir(int d) {//funciona igual que el mostrar, con la diferencia que el dato se elimina y se le hace saber al user de lo acontecido 
 				//la variable d sirve para tomar el dato del jtxtfield en la interfaz, CORRESPONDIENTE AL INDICE QUE CONTIENE AL OBJETO
 				
 				
@@ -148,7 +126,7 @@ public class Lista {
 			
 			
 			
-			public String mostrar() {//metodo para mostrar todos los datos que haya hasta ese momento
+public String mostrar() {//metodo para mostrar todos los datos que haya hasta ese momento
 				
 				String mensaje="";
 				if(l.isEmpty()) {
@@ -168,7 +146,7 @@ public class Lista {
 				return mensaje;
 			}
 			
-			public boolean elementosLista() {// PARA VER SI HAY ELEMENTOS EN LISTA 
+public boolean elementosLista() {// PARA VER SI HAY ELEMENTOS EN LISTA 
 				
 				boolean hayElementos= false;
 				
@@ -185,7 +163,7 @@ public class Lista {
 			}
 			
 			
-			public boolean existeElemento(int d) {//metodo para buscar un cliente en especifico
+public boolean existeElemento(int d) {//metodo para buscar un cliente en especifico
 				
 				
 				//la variable "d" se utiliza para recibir el dato del JTxtField
@@ -208,7 +186,7 @@ public class Lista {
 			}
 			
 			
-			public String acumulaDatos() {//ACUMULA LA INFO DE LA LISTA, DESPLEGANDO AL FINAL SOLAMENTE EL NOMBRE E IDENTIFICACION DEL PACIENTE.
+public String acumulaDatos() {//ACUMULA LA INFO DE LA LISTA, DESPLEGANDO AL FINAL SOLAMENTE EL NOMBRE E IDENTIFICACION DEL PACIENTE.
 											//ESTO HACE MÃ�S PRATICO, EL ELIMINAR, BUSCAR Y ACTUALIZAR, PARA EL USER 
 				
 				
@@ -228,7 +206,7 @@ public class Lista {
 			
 			
 				
-			public void mensajeTemporizado(String s, int t) {//METODO PARA HACER MENSAJES TEMPORIZADOS, ES MUY UTIL PARA LA GUI Y ADEMAS FACIL DE USAR
+public void mensajeTemporizado(String s, int t) {//METODO PARA HACER MENSAJES TEMPORIZADOS, ES MUY UTIL PARA LA GUI Y ADEMAS FACIL DE USAR
 				JOptionPane opt = new JOptionPane(s, JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, null, new Object[]{});
 				  final JDialog dlg = opt.createDialog("Aviso");
 				  new Thread(new Runnable()
