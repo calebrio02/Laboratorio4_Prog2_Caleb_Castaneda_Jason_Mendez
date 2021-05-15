@@ -171,7 +171,7 @@ public boolean existeElemento(int d) {//metodo para buscar un cliente en especif
 				
 					
 					try {
-						if(l.isEmpty()) {///Si esta vacia se despliega el mensaje
+						if(l.isEmpty()) {///Si esta vaciae despliega el mensaje
 							mensajeTemporizado("Lista Vacia", 800);
 						}else {
 							existe = true;
